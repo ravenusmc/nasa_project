@@ -21,7 +21,6 @@ async function getPeopleInSpace(url) {
   return Promise.all(profiles);
 }
 
-
 // Generate the markup for each profile
 function generateHTML(data) {
   data.map( person => {
