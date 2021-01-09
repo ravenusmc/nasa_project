@@ -2,8 +2,12 @@
 ## Intro
 
 The purpose of this project is use some NASA/space api's and build a site that has a lot of information 
-about the cosmos. I recently finished reading The HUman Cosmos: Civilization and the Stars, which was a great 
+about the cosmos. I recently finished reading The Human Cosmos: Civilization and the Stars, which was a great 
 book, and maybe that inspired me to build this page. 
+
+This project is also a little bit different from my other projects. Some of this code I took from Team Treehouse
+when I was doing a JavaScript lesson with them. The project covered a space project so I decided that 
+it would be good to use that code within this project. 
 
 # Getting started
 ### Installing
