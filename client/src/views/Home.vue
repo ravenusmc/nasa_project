@@ -1,15 +1,31 @@
 <template>
   <div>
+    <main>
+      <Navbar />
+      <Pic />
+    </main>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import Pic from "@/components/home/Pic.vue";
+import Navbar from "@/components/generic/Navbar.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-  }
-}
+    Pic,
+    Navbar,
+  },
+};
 </script>
+
+<style scoped>
+
+main {
+  display: grid; 
+  grid-template-columns: 20% 80%;
+}
+
+</style>
