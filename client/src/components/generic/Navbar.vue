@@ -1,13 +1,18 @@
 <template>
   <div>
     <section>
-
-            <a class="nav-link" href="#"
-              ><router-link class="fontColor" to="/">Home</router-link></a
-            >
-            <a class="nav-link" href="#"
-              ><router-link class="fontColor" to="/about">About</router-link></a
-            >
+      <div class="navbar-div">
+        <a class="nav-link" href="#">
+          <router-link class="fontColor" to="/">
+            Home
+          </router-link>
+        </a>
+        <a class="nav-link" href="#">
+          <router-link class="fontColor" to="/about">
+            About
+          </router-link>
+        </a>
+      </div>
     </section>
   </div>
 </template>
@@ -18,6 +23,13 @@ export default {};
 
 <style scoped>
 section {
-  background-color: blue;
+  height: 100vh;
+  border: 2px solid black;
 }
+
+.navbar-div {
+  border: 2px solid red;
+  margin-top: 45vh;
+}
+
 </style>

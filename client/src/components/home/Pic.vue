@@ -16,8 +16,8 @@ img {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-	height: 20%;
-	border: 2px solid red;
+	width: 100%;
+	height: 75%;
 }
 
 </style>
