@@ -2,21 +2,21 @@
   <div>
     <main>
       <Navbar />
-      <Pic />
+      <InfoArea />
     </main>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Pic from "@/components/home/Pic.vue";
 import Navbar from "@/components/generic/Navbar.vue";
+import InfoArea from "@/components/home/InfoArea.vue";
 
 export default {
   name: "Home",
   components: {
-    Pic,
     Navbar,
+    InfoArea,
   },
 };
 </script>

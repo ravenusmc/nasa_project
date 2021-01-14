@@ -5,4 +5,13 @@
 </template>
 
 <style>
+
+.center {
+  text-align: center;
+}
+
+.font {
+  font-family: 'Orbitron', sans-serif;
+}
+
 </style>
