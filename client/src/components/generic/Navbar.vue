@@ -1,18 +1,20 @@
 <template>
   <div>
     <section>
+
       <div class="navbar-div">
         <a class="nav-link" href="#">
-          <router-link class="fontColor" to="/">
+          <router-link class="fontColor font" to="/">
             Home
           </router-link>
         </a>
         <a class="nav-link" href="#">
-          <router-link class="fontColor" to="/about">
+          <router-link class="fontColor font" to="/about">
             About
           </router-link>
         </a>
       </div>
+
     </section>
   </div>
 </template>
@@ -22,14 +24,22 @@ export default {};
 </script>
 
 <style scoped>
+
 section {
-  height: 100vh;
-  border: 2px solid black;
+  height: 110%;
+  border: 2px solid #041e42;
+  background: #041e42;
 }
 
 .navbar-div {
-  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 45vh;
+}
+
+.fontColor {
+  color: white;
 }
 
 </style>

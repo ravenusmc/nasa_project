@@ -4,6 +4,7 @@
       <Navbar />
       <InfoArea />
     </main>
+    <Footer />
   </div>
 </template>
 
@@ -11,12 +12,14 @@
 // @ is an alias to /src
 import Navbar from "@/components/generic/Navbar.vue";
 import InfoArea from "@/components/home/InfoArea.vue";
+import Footer from "@/components/generic/Footer.vue";
 
 export default {
   name: "Home",
   components: {
     Navbar,
     InfoArea,
+    Footer,
   },
 };
 </script>
