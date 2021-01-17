@@ -9,6 +9,11 @@
           </router-link>
         </a>
         <a class="nav-link" href="#">
+          <router-link class="fontColor font" to="/mars">
+            Mars
+          </router-link>
+        </a>
+        <a class="nav-link" href="#">
           <router-link class="fontColor font" to="/about">
             About
           </router-link>
