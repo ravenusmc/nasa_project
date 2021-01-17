@@ -62,5 +62,6 @@ footer {
   color: #bf0d3e;
   font-size: 20px;
   text-transform: uppercase;
+  text-align: center;
 }
 </style>

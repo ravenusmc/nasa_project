@@ -4,7 +4,7 @@
     <!-- BootStrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light backgroundColor">
       <a class="navbar-brand fontColor font" href="#">Space Project</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" style="color:#fff;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -36,4 +36,9 @@ export default {
 .fontColor {
   color: white !important;
 }
+
+.navbar-toggler{
+  background-color: white;
+}
+
 </style>
