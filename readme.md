@@ -1,4 +1,4 @@
-# Southern_Project
+# NASA Project
 ## Intro
 
 The purpose of this project is use some NASA/space api's and build a site that has a lot of information 
@@ -11,6 +11,11 @@ it would be good to use that code within this project.
 
 NASA APIs:
 https://api.nasa.gov/
+
+Kaggle Datasets: 
+https://www.kaggle.com/agirlcoding/all-space-missions-from-1957
+https://www.kaggle.com/nasa/space-walking-russian-and-us-evas
+
 
 # Getting started
 ### Installing
