@@ -25,7 +25,11 @@ export default {
       'fetchMarsData',
     ]),
   mounted() {
-    this.fetchMarsData();
+    const payload = {
+				solDay: 1000,
+				camera: "FHAZ",
+		};
+    this.fetchMarsData({ payload });
   } // End of mounted function
 };
 </script>

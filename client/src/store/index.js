@@ -18,12 +18,11 @@ export default new Vuex.Store({
 
   actions: {
 
-    fetchMarsData: ({commit}) => {
-      // Need to allow user to change sol date, 
-      // Need to allow user to change camera 
+    fetchMarsData: ({commit}, { payload }) => {
       // what is is min / max date for sol date 
+      console.log(payload.camera);
       axios
-        .get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&camera=fhaz&api_key=DEMO_KEY')
+        .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${payload.solDay}&camera=${payload.camera}&api_key=${nasaAPI.nasaAPI}`)
         // .get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + currentDateFormatted + '&api_key=' + nasaAPI.nasaAPI)
         .then(response => {
           console.log(response.data)

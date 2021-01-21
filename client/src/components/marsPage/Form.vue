@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 
 export default {
 	name: "Form",
@@ -48,14 +49,35 @@ export default {
     };
   },
 	methods: {
+		...mapActions([
+      'fetchMarsData',
+    ]),
     submitSelection(evt) {
 			evt.preventDefault();
+			if (this.camera == 'Front Hazard Avoidance Camera') {
+				this.camera = 'FHAZ'
+			}else if (this.camera == 'Front Hazard Avoidance Camera') {
+				this.camera = 'RHAZ'
+			}else if (this.camera == 'Mast Camera') {
+				this.camera = 'MAST'
+			}else if (this.camera == 'Chemistry and Camera Complex') {
+				this.camera = 'CHEMCAM'
+			}else if (this.camera == 'Mars Hand Lens Imager') {
+				this.camera = 'MAHLI'
+			}else if (this.camera == 'Mars Descent Imager') {
+				this.camera = 'MARDI'
+			}else if (this.camera == 'Navigation Camera') {
+				this.camera = 'NAVCAM'
+			}else if (this.camera == 'Panoramic Camera') {
+				this.camera = 'PANCAM'
+			}else if (this.camera == 'Miniature Thermal Emission Spectrometer (Mini-TES)') {
+				this.camera = 'MINITES'
+			}
       const payload = {
 				solDay: this.solDay,
 				camera: this.camera,
 			};
-			console.log(payload);
-      // this.fireActions({ payload });
+			this.fetchMarsData({ payload });
     },
   }
 }
@@ -68,7 +90,6 @@ section {
 	margin-right: 8%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	border: 2px solid blue;
 }
 
 form {
