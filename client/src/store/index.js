@@ -19,18 +19,21 @@ export default new Vuex.Store({
   actions: {
 
     fetchMarsData: ({commit}, { payload }) => {
-      // what is is min / max date for sol date 
-      console.log(payload.camera);
       axios
         .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${payload.solDay}&camera=${payload.camera}&api_key=${nasaAPI.nasaAPI}`)
-        // .get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=' + currentDateFormatted + '&api_key=' + nasaAPI.nasaAPI)
         .then(response => {
-          console.log(response.data)
+          let marsData = response.data.photos;
+          let marsDataParsed = [];
+          for (let i = 0; i < marsData.length; i++) {
+            let tempData = {}
+            tempData.earth_date = marsData[i].earth_date
+            tempData.image = marsData[i].img_src
+            tempData.rover_name = marsData[i].rover.name
+            marsDataParsed.push(tempData)
+          }
+          console.log(marsDataParsed)
+          commit('setMarsData', marsDataParsed);
         })
-        
-      console.log(nasaAPI.nasaAPI);
-      let data = 'Mike';
-      commit('setMarsData', data);
     }
 
   },

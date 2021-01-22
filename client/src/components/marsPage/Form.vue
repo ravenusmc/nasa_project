@@ -36,6 +36,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import test from '../../store/helper.js';
 
 export default {
 	name: "Form",
@@ -53,6 +54,7 @@ export default {
       'fetchMarsData',
     ]),
     submitSelection(evt) {
+			console.log(test);
 			evt.preventDefault();
 			if (this.camera == 'Front Hazard Avoidance Camera') {
 				this.camera = 'FHAZ'
