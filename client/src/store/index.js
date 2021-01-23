@@ -31,7 +31,6 @@ export default new Vuex.Store({
             tempData.rover_name = marsData[i].rover.name
             marsDataParsed.push(tempData)
           }
-          console.log(marsDataParsed)
           commit('setMarsData', marsDataParsed);
         })
     }

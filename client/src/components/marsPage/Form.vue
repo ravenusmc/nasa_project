@@ -17,7 +17,7 @@
         </select>
 			</div>
 			<div class='button-div'>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-outline-primary">Submit</button>
 			</div>
 		</form>
 
@@ -36,7 +36,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import test from '../../store/helper.js';
+//import changeCameraName from '../../store/helper.js';
 
 export default {
 	name: "Form",
@@ -52,29 +52,32 @@ export default {
 	methods: {
 		...mapActions([
       'fetchMarsData',
-    ]),
-    submitSelection(evt) {
-			console.log(test);
-			evt.preventDefault();
-			if (this.camera == 'Front Hazard Avoidance Camera') {
-				this.camera = 'FHAZ'
-			}else if (this.camera == 'Front Hazard Avoidance Camera') {
-				this.camera = 'RHAZ'
-			}else if (this.camera == 'Mast Camera') {
-				this.camera = 'MAST'
-			}else if (this.camera == 'Chemistry and Camera Complex') {
-				this.camera = 'CHEMCAM'
-			}else if (this.camera == 'Mars Hand Lens Imager') {
-				this.camera = 'MAHLI'
-			}else if (this.camera == 'Mars Descent Imager') {
-				this.camera = 'MARDI'
-			}else if (this.camera == 'Navigation Camera') {
-				this.camera = 'NAVCAM'
-			}else if (this.camera == 'Panoramic Camera') {
-				this.camera = 'PANCAM'
-			}else if (this.camera == 'Miniature Thermal Emission Spectrometer (Mini-TES)') {
-				this.camera = 'MINITES'
+		]),
+		changeCameraName(fullCameraName) {
+			if (fullCameraName == 'Front Hazard Avoidance Camera') {
+				fullCameraName = 'FHAZ'
+			}else if (fullCameraName == 'Rear Hazard Avoidance Camera') {
+				fullCameraName = 'RHAZ'
+			}else if (fullCameraName == 'Mast Camera') {
+				fullCameraName = 'MAST'
+			}else if (fullCameraName == 'Chemistry and Camera Complex') {
+				fullCameraName = 'CHEMCAM'
+			}else if (fullCameraName == 'Mars Hand Lens Imager') {
+				fullCameraName = 'MAHLI'
+			}else if (fullCameraName == 'Mars Descent Imager') {
+				fullCameraName = 'MARDI'
+			}else if (fullCameraName == 'Navigation Camera') {
+				fullCameraName = 'NAVCAM'
+			}else if (fullCameraName == 'Panoramic Camera') {
+				fullCameraName = 'PANCAM'
+			}else if (fullCameraName == 'Miniature Thermal Emission Spectrometer (Mini-TES)') {
+				fullCameraName = 'MINITES'
 			}
+			return fullCameraName
+		},
+    submitSelection(evt) {
+			evt.preventDefault();
+			this.camera = this.changeCameraName(this.camera)
       const payload = {
 				solDay: this.solDay,
 				camera: this.camera,

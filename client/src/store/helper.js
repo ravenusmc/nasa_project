@@ -1,5 +1,5 @@
 module.exports = {
-	getSrmColor: (color) => {
-			return color;
+	changeCameraName: (fullname) => {
+			return fullname;
 	}
 }
