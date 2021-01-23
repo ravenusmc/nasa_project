@@ -18,7 +18,7 @@ export default new Vuex.Store({
 
   actions: {
 
-    fetchMarsData: ({commit}, { payload }) => {
+    fetchMarsData: ({ commit }, { payload }) => {
       axios
         .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${payload.solDay}&camera=${payload.camera}&api_key=${nasaAPI.nasaAPI}`)
         .then(response => {
@@ -26,6 +26,7 @@ export default new Vuex.Store({
           let marsDataParsed = [];
           for (let i = 0; i < marsData.length; i++) {
             let tempData = {}
+            tempData.index = i
             tempData.earth_date = marsData[i].earth_date
             tempData.image = marsData[i].img_src
             tempData.rover_name = marsData[i].rover.name

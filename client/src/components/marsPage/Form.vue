@@ -16,7 +16,7 @@
            </option>
         </select>
 			</div>
-			<div class='button-div'>
+			<div>
 				<button type="submit" class="btn btn-outline-primary">Submit</button>
 			</div>
 		</form>
@@ -84,7 +84,7 @@ export default {
 			};
 			this.fetchMarsData({ payload });
     },
-  }
+	},
 }
 </script>
 
@@ -99,12 +99,5 @@ section {
 
 form {
 	width: 40%;
-}
-
-.button-div {
-	display: flex; 
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 </style>
