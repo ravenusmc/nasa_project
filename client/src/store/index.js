@@ -10,10 +10,13 @@ export default new Vuex.Store({
 
   state: {
     marsData: [],
+    marsLoading: 'loading',
+    marsLoadingMessage: false,
   },
 
   getters: {
     marsData: state => state.marsData,
+    marsLoadingMessage: state => state.marsLoadingMessage,
   },
 
   actions: {
@@ -33,7 +36,12 @@ export default new Vuex.Store({
             marsDataParsed.push(tempData)
           }
           commit('setMarsData', marsDataParsed);
+          commit('setMarsLoadingMessage', false);
         })
+    },
+
+    fetchMarsLoadingMessage({ commit }, { message }) {
+      commit('setMarsLoadingMessage', message.loading);
     }
 
   },
@@ -43,6 +51,10 @@ export default new Vuex.Store({
     setMarsData(state, data) {
       state.marsData = data
     },
+
+    setMarsLoadingMessage(state, data) {
+      state.marsLoadingMessage = data
+    }
 
   },
 
