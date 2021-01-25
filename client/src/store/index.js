@@ -12,7 +12,7 @@ export default new Vuex.Store({
     marsData: [],
     marsLoading: 'loading',
     marsLoadingMessage: false,
-    marsNoData: true,
+    marsNoData: false,
     marsRoverName: '',
     marsEarthDate: '',
   },
@@ -28,12 +28,12 @@ export default new Vuex.Store({
   actions: {
 
     fetchMarsData: ({ commit }, { payload }) => {
+      console.log(payload);
       axios
         .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${payload.solDay}&camera=${payload.camera}&api_key=${nasaAPI.nasaAPI}`)
         .then(response => {
           if (response.data.photos.length == 0) {
-            console.log('HERE');
-            commit('setMarsNoData', false)
+            commit('setMarsNoData', true)
             commit('setMarsLoadingMessage', false);
           } else {
             let marsData = response.data.photos;
@@ -51,6 +51,7 @@ export default new Vuex.Store({
             commit('setMarsEarthDate', earthDate)
             commit('setMarsRoverName',roverName)
             commit('setMarsData', marsDataParsed);
+            commit('setMarsLoadingMessage', false);
           }
 
         })

@@ -7,14 +7,14 @@
           <input
             type="number"
             v-model="solDay"
-            class="form-control"
+            class="form-control sol-day-input"
             id="solDay"
             placeholder="Enter Sol Day"
           />
         </div>
         <div class="form-group">
           <label for="solDay"
-            >Select Camera: {{ this.marsLoadingMessage }}</label
+            >Select Camera: </label
           >
           <select v-model="camera" name="camera">
             <option
@@ -52,7 +52,7 @@ export default {
   name: "Form",
   data() {
     return {
-      solDay: 0,
+      solDay: 1000,
       camera: "Front Hazard Avoidance Camera",
       cameras: [
         "Front Hazard Avoidance Camera",
@@ -122,10 +122,15 @@ section {
   margin-left: 8%;
   margin-right: 8%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-gap: 3em;
 }
 
-form {
-  width: 40%;
+.sol-day-input {
+  width: 100px;
 }
+
+/* form {
+  width: 40%;
+} */
 </style>
