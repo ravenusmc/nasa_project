@@ -1,13 +1,17 @@
 <template>
 	<div>
 
-		<section>
-			<h2 class='font center'>Rover Name: {{ this.marsData[0].rover_name }}, Earth Date: {{ this.marsData[0].earth_date }}</h2>
+		<section v-if="marsNoData">
+			<p>{{ this.marsNoData }}</p>
+			<h2 class='font center'>Rover Name: {{ this.marsRoverName }}, Earth Date: {{ this.marsEarthDate }}</h2>
 			<!-- {{ this.marsData }} -->
 			<div class='main-image-div'>
 				<div class='image-div' v-for="d of this.marsData" v-bind:key="d.index">
 					<img :src="d.image" alt="Mars Image">
 				</div>
+			<div v-if="marsNoData">
+				<h1 class='center'>No Data</h1>
+			</div>
 			</div>
 		</section>
 
@@ -26,7 +30,10 @@ export default {
   },
 	computed: {
     ...mapGetters([
-      'marsData',
+			'marsData',
+			'marsNoData',
+			'marsRoverName',
+			'marsEarthDate',
     ]),
   }, // End Computed properties
 }

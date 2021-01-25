@@ -65,7 +65,6 @@ export default {
         "Panoramic Camera",
         "Miniature Thermal Emission Spectrometer (Mini-TES)",
       ],
-      loadingMessage: false,
     };
   },
   computed: {
