@@ -10,7 +10,7 @@
 import AltNavbar from "@/components/generic/AltNavbar.vue";
 import Data from "@/components/picturePage/Data.vue";
 import Footer from "@/components/generic/Footer.vue";
-// import { mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "Picture",
@@ -19,13 +19,9 @@ export default {
     Data,
     Footer,
   },
-  // methods: mapActions("mars", ["fetchMarsData"]),
+  methods: mapActions("picture", ["fetchPictureData"]),
   mounted() {
-    const payload = {
-      solDay: 1000,
-      camera: "FHAZ",
-    };
-    this.fetchMarsData({ payload });
+    this.fetchPictureData();
   }, // End of mounted function
 };
 </script>
