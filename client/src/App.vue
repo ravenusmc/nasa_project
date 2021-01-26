@@ -6,6 +6,10 @@
 
 <style>
 
+* {
+  box-sizing: border-box;
+}
+
 .center {
   text-align: center;
 }

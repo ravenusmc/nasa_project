@@ -28,7 +28,7 @@ export default {
     };
   },
 	computed: {
-    ...mapGetters([
+    ...mapGetters('mars', [
 			'marsData',
 			'marsNoData',
 			'marsRoverName',
@@ -42,12 +42,13 @@ export default {
 
 section {
 	margin-top: 50px;
+	margin-bottom: 100px;
 }
 
 .main-image-div {
 	margin-top: 30px;
 	display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 3em;
 	text-align: center;
 }

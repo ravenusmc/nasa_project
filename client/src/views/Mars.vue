@@ -13,7 +13,7 @@ import Form from "@/components/marsPage/Form.vue";
 import MarsData from "@/components/marsPage/MarsData.vue";
 import Footer from "@/components/generic/Footer.vue";
 //import axios from 'axios';
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
   name: "Mars",
@@ -23,17 +23,14 @@ export default {
     Form,
     Footer,
   },
-  methods:  
-    mapActions([
-      'fetchMarsData',
-    ]),
-    mounted() {
-      const payload = {
-          solDay: 1000,
-          camera: "FHAZ",
-      };
-      this.fetchMarsData({ payload });
-    } // End of mounted function
+  methods: mapActions("mars", ["fetchMarsData"]),
+  mounted() {
+    const payload = {
+      solDay: 1000,
+      camera: "FHAZ",
+    };
+    this.fetchMarsData({ payload });
+  }, // End of mounted function
 };
 </script>
 

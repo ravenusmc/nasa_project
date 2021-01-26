@@ -13,9 +13,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="solDay"
-            >Select Camera: </label
-          >
+          <label for="solDay">Select Camera: </label>
           <select v-model="camera" name="camera">
             <option
               v-for="camera in cameras"
@@ -37,7 +35,10 @@
           The NASA Mars API has multiple variants of their API on how you can
           search for data. I looked at a few of them and decided to go with one
           where the user can select the camera on a rover and a Mars day. This
-          will return some images.
+          will return some images. I'm not sure how the Sol days work - I guess
+          enter number is there and see what you get. Be sure to select a camera
+          as well and photos should come back. If no photo's are available then
+          a message of 'No Data' will be displayed.
         </p>
       </div>
     </section>
@@ -68,13 +69,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["marsLoadingMessage"]),
-  }, // End Computed properties
+    ...mapGetters("mars", ["marsLoadingMessage"]),
+  },
   methods: {
-    ...mapActions([
-			"fetchMarsData",
-			"fetchMarsLoadingMessage",
-			]),
+    ...mapActions([ "mars/fetchMarsData", "mars/fetchMarsLoadingMessage"]),
     changeCameraName(fullCameraName) {
       if (fullCameraName == "Front Hazard Avoidance Camera") {
         fullCameraName = "FHAZ";
@@ -105,12 +103,12 @@ export default {
       const payload = {
         solDay: this.solDay,
         camera: this.camera,
-			};
-			const message = {
-				loading: true
-			}
-			this.fetchMarsLoadingMessage({message})
-      this.fetchMarsData({ payload });
+      };
+      const message = {
+        loading: true,
+      };
+      this.$store.dispatch('mars/fetchMarsLoadingMessage', {message});
+      this.$store.dispatch('mars/fetchMarsData', {payload})
     },
   },
 };
