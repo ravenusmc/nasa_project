@@ -9,6 +9,11 @@
           </router-link>
         </a>
         <a class="nav-link" href="#">
+          <router-link class="fontColor font" to="/picture">
+            Picture of the Day
+          </router-link>
+        </a>
+        <a class="nav-link" href="#">
           <router-link class="fontColor font" to="/mars">
             Mars
           </router-link>
@@ -31,7 +36,7 @@ export default {};
 <style scoped>
 
 section {
-  height: 110%;
+  height: 115%;
   border: 2px solid #041e42;
   background: #041e42;
 }
