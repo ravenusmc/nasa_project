@@ -7,19 +7,25 @@ Vue.use(Vuex)
 
 const state = {
 	pictureData: [],
+	noDataMessage: false,
 };
 
 const getters = {
 	pictureData: state => state.pictureData,
+	noDataMessage: state => state.noDataMessage,
 };
 
 const actions = {
 
 	fetchPictureData: ({ commit }) => {
 		axios
-			.get(`https://api.nasa.gov/planetary/apod?api_key=${nasaAPI.nasaAPI}`)
+			.get(`https://api.nasa.gov/planetary/apo?api_key=${nasaAPI.nasaAPI}`)
 			.then(response => {
 				commit('setPictureData', response.data)
+			})
+			.catch(error => {
+				commit('setNoDataMessage', true)
+				console.log(error);
 			})
 	},
 
@@ -30,6 +36,10 @@ const mutations = {
 	setPictureData(state, data) {
 		state.pictureData = data
 	},
+
+	setNoDataMessage(state, data) {
+		state.noDataMessage = data
+	}
 
 };
 

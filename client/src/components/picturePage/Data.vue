@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="font">
+    <section class="font" v-if="!noDataMessage">
       <div class="picture-page-title">
         <h2 class="center">Picture of the Day</h2>
         <p class="center">Date: {{ this.pictureData.date }}</p>
@@ -12,13 +12,18 @@
           <img :src="pictureData.hdurl" :alt="pictureData.title" />
         </div>
         <h4 class="center">Explanation:</h4>
-        <div class='explanation-div'>
+        <div class="explanation-div">
           <p>
             {{ this.pictureData.explanation }}
           </p>
         </div>
       </div>
     </section>
+
+    <div v-if="noDataMessage">
+      <h1 class="center font">No Data</h1>
+    </div>
+
   </div>
 </template>
 
@@ -28,7 +33,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "Data",
   computed: {
-    ...mapGetters("picture", ["pictureData"]),
+    ...mapGetters("picture", ["pictureData", "noDataMessage"]),
   }, // End Computed properties
 };
 </script>
@@ -50,7 +55,7 @@ img {
 }
 
 .explanation-div {
-	margin: 0% 10%;
-	line-height: 2em;
+  margin: 0% 10%;
+  line-height: 2em;
 }
 </style>
