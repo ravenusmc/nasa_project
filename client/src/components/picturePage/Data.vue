@@ -20,9 +20,9 @@
       </div>
     </section>
 
-    <div v-if="noDataMessage">
-      <h1 class="center font">No Data</h1>
-    </div>
+		<div class='no-data-message' v-if="noDataMessage">
+			<h1 class='center font'>No Data</h1>
+		</div>
 
   </div>
 </template>
@@ -57,5 +57,10 @@ img {
 .explanation-div {
   margin: 0% 10%;
   line-height: 2em;
+}
+
+.no-data-message {
+  margin-top: 150px;
+  margin-bottom: 500px;
 }
 </style>

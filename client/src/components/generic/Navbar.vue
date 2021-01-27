@@ -9,6 +9,11 @@
           </router-link>
         </a>
         <a class="nav-link" href="#">
+          <router-link class="fontColor font" to="/people">
+            People in Space
+          </router-link>
+        </a>
+        <a class="nav-link" href="#">
           <router-link class="fontColor font" to="/picture">
             Picture of the Day
           </router-link>

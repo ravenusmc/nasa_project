@@ -12,10 +12,10 @@
 			</div>
 		</section>
 
-		<div class='no-data-message' v-if="marsNoData">
+		<div v-if="marsNoData">
 			<h1 class='center font'>No Data</h1>
 		</div>
-		
+
 	</div>
 </template>
 
@@ -62,11 +62,6 @@ section {
 
 img {
 	height: 450px;
-}
-
-.no-data-message {
-	margin-top: 50px;
-	border: 2px solid red;
 }
 
 </style>

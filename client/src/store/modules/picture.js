@@ -19,7 +19,7 @@ const actions = {
 
 	fetchPictureData: ({ commit }) => {
 		axios
-			.get(`https://api.nasa.gov/planetary/apo?api_key=${nasaAPI.nasaAPI}`)
+			.get(`https://api.nasa.gov/planetary/apod?api_key=${nasaAPI.nasaAPI}`)
 			.then(response => {
 				commit('setPictureData', response.data)
 			})
