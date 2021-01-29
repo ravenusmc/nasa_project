@@ -14,7 +14,18 @@ const getters = {
 
 const actions = {
 
-	fetchPeopleData: ({ commit }) => {
+	fetchPeopleInformation: ({commit}, { profiles }) => {
+		const profilesData = profiles.map(url => {
+			return fetch(url)
+							.then( response => response.json());
+		});
+		commit('setPeopleData', true)
+		console.log(profilesData)
+		// return Promise.all(profilesData);
+		return profilesData
+	},
+
+	fetchPeopleData: ({ commit, dispatch }) => {
 		const wikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/'
 		axios
 			.get('http://api.open-notify.org/astros.json')
@@ -22,20 +33,15 @@ const actions = {
 				const profiles = response.data.people.map(person => {
 					return wikiUrl + person.name
 				});
-				for(let i = 0; i < profiles.length; i++) {
-					axios
-						.get(profiles[i])
-						.then(response => {
-							if (response.data.type != 'disambiguation') {
-								const goodProfiles = response.data.map((title, extract) => {
-									return title + extract
-								})
-								console.log(goodProfiles)
-							}
-						})
-				}
-				const data = 'Mike';
-				commit('setPeopleData', data)
+				return profiles
+			})
+			.then(profiles => {
+				return Promise.all([
+					dispatch('fetchPeopleInformation', { profiles })
+				])
+			})
+			.then(profilesData => {
+				console.log(profilesData)
 			})
 			.catch(error => {
 				commit('setNoDataMessage', true)
@@ -44,7 +50,12 @@ const actions = {
 	},
 
 };
-
+				// const goodProfiles = peopleData.map(item => {
+				// 		const container = {}
+				// 		container[item.title] = item.title
+				// 		container.name = "mike"
+				// 		return container
+				// })
 
 const mutations = {
 
