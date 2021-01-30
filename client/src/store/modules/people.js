@@ -6,23 +6,23 @@ Vue.use(Vuex)
 
 const state = {
 	peopleData: [],
+	peopleNoDataMessage: false,
 };
 
 const getters = {
 	peopleData: state => state.peopleData,
+	peopleNoDataMessage: state => state.peopleNoDataMessage,
 };
 
 const actions = {
 
-	fetchPeopleInformation: ({commit}, { profiles }) => {
+	fetchPeopleInformation: ({ commit }, { profiles }) => {
 		const profilesData = profiles.map(url => {
 			return fetch(url)
-							.then( response => response.json());
+				.then(response => response.json());
 		});
-		commit('setPeopleData', true)
-		console.log(profilesData)
-		// return Promise.all(profilesData);
-		return profilesData
+		commit('setUseless', true)
+		return Promise.all(profilesData);
 	},
 
 	fetchPeopleData: ({ commit, dispatch }) => {
@@ -41,25 +41,48 @@ const actions = {
 				])
 			})
 			.then(profilesData => {
-				console.log(profilesData)
+				const peopleData = []
+				for (let i = 0; i < profilesData[0].length; i++) {
+					if (profilesData[0][i].type != 'disambiguation') {
+						peopleData.push(profilesData[0][i])
+					}
+				}
+				return peopleData
+			})
+			.then(peopleData => {
+				let i = 0; 
+				const goodProfiles = peopleData.map(item => {
+					const container = {}
+					container.index = i
+					container.name = item.title
+					container.description = item.description
+					container.info = item.extract
+					container.img = item.originalimage.source
+					i++
+					return container
+				})
+				commit('setPeopleData', goodProfiles)
 			})
 			.catch(error => {
-				commit('setNoDataMessage', true)
+				commit('setPeopleNoDataMessage', true)
 				console.log(error);
 			})
 	},
 
 };
-				// const goodProfiles = peopleData.map(item => {
-				// 		const container = {}
-				// 		container[item.title] = item.title
-				// 		container.name = "mike"
-				// 		return container
-				// })
+
 
 const mutations = {
 
 	setPeopleData(state, data) {
+		state.peopleData = data
+	},
+
+	setPeopleNoDataMessage(state, data) {
+		state.peopleNoDataMessage = data
+	},
+
+	setUseless(state, data) {
 		state.peopleData = data
 	},
 
