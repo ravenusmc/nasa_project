@@ -24,6 +24,11 @@
           </router-link>
         </a>
         <a class="nav-link" href="#">
+          <router-link class="fontColor font" to="/eva">
+            EVA
+          </router-link>
+        </a>
+        <a class="nav-link" href="#">
           <router-link class="fontColor font" to="/about">
             About
           </router-link>

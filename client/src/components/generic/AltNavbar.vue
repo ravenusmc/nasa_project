@@ -23,6 +23,9 @@
             <a class="nav-link" href="#"><router-link class='fontColor font' to="/mars">Mars</router-link></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#"><router-link class='fontColor font' to="/eva">EVA's</router-link></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#"><router-link class='fontColor font' to="/about">About</router-link></a>
           </li>
         </ul>
