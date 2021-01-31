@@ -35,7 +35,7 @@ export default {
 
 .people-data-div {
 	display: grid; 
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	grid-gap: 3em;
 	margin-top: 50px;
 	margin-left: 5%;

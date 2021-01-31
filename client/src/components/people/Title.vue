@@ -16,6 +16,7 @@ export default {
 
 .people-title-area {
 	margin-top: 50px;
+	text-transform: uppercase;
 }
 
 </style>
