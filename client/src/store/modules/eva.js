@@ -54,3 +54,11 @@ const state = {
 const getters = {
 	evaCountData: state => state.evaCountData,
 };
+
+export default {
+	namespaced: true,
+	state,
+	getters,
+	// actions,
+	// mutations
+};
