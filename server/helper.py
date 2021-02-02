@@ -15,22 +15,20 @@ class Helper():
 
 	def get_data_in_correct_graph_format(self, eva_count):
 		chartData = []
-		columns = ['Word', 'Count']
+		columns = ['Year', 'EVA Count']
 		chartData.append(columns)
 		initial_year = 1965
 		while initial_year <= 2013:
+			rows = []
 			try:
 				count = eva_count.loc[initial_year]
-				print(count)
-				print(initial_year)
-				print(eva_count.loc[initial_year])
+				rows.append(initial_year)
+				rows.append(count)
+				chartData.append(rows)
 			except KeyError:
-				print('Error, but program will continue to function')
+				pass
+				# print('Error, but program will continue to function')
 			initial_year += 1
-		# print(eva_count)
+		return chartData
 
-        for word, count in word_and_count.items():
-            rows = []
-            rows.append(word)
-            rows.append(count)
-            chartData.append(rows)
+
