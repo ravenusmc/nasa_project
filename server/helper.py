@@ -3,7 +3,7 @@
 #importing supporting libraries
 import numpy as np
 import pandas as pd
-import datetime as dt
+import datetime
 
 class Helper():
 
@@ -21,7 +21,7 @@ class Helper():
 		while initial_year <= 2013:
 			rows = []
 			try:
-				count = eva_count.loc[initial_year]
+				count = int(eva_count.loc[initial_year])
 				rows.append(initial_year)
 				rows.append(count)
 				chartData.append(rows)

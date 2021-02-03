@@ -7,13 +7,11 @@
 			:options='chartOptionsOne'>
 		</GraphCard>
 
-		<p>{{ this.evaCountData }}</p>
-		<p>HERE</p>
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import GraphCard from '@/components/charts/GraphCard.vue';
 
 export default {
@@ -23,22 +21,26 @@ export default {
   },
 	data() {
     return {
-      typeOne: 'BarChart',
+      typeOne: 'ColumnChart',
       chartOptionsOne: {
-        title: 'Word Count by Speech',
+        title: 'EVA Count by Year',
         legend: { position: 'top' },
         colors:['#BF0D3E'],
-        height: 500,
+        height: 600,
         animation:{
          duration: 1000,
          easing: 'linear',
        },
       },
     }
-	},
+  },
 	computed: {
     ...mapGetters("eva", ['evaCountData']),
   }, // End Computed properties
+  methods: mapActions("eva", ['fetchEvaCountData']),
+  mounted() {
+    this.fetchEvaCountData();
+  }
 }
 </script>
 
