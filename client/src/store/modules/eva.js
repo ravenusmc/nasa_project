@@ -63,13 +63,9 @@ const actions = {
 		axios.post(path)
 			.then((res) => {
 				for (let i = 1; i < res.data.length; i++) {
-					// let year = new Date();
-					let date = new Date(res.data[i][0],1,1)
+					let date = new Date(res.data[i][0],0,1)
 					res.data[i][0] = date
-					// console.log(year.setFullYear(res.data[i][0]))
-					// res.data[i][0] = year.setFullYear(res.data[i][0])
 				}
-				console.log(res.data)
 				commit('setEvaCountData', res.data);
 			});
 	}
