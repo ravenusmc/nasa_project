@@ -3,9 +3,32 @@
 
 	<form>
 		<div class="form-group">
-			<label for="exampleInputEmail1">Email address</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+			<input type='text' v-model="search" placeholder="Search For Vehicle"/>
+			<!-- <select v-model="vehicle" name="vehicle"> -->
+			<option
+					v-for="vehicle in filteredVehicles"
+					v-bind:key="vehicle"
+					:value="vehicle"
+				>
+					{{ vehicle }}
+				</option>
+			<!-- </select> -->
+			<!-- <div v-for="vehicle in filteredVehicles" v-bind:key="vehicle">
+				{{ vehicle }}
+			</div> -->
+
+			<!-- <label for="vehicle">Select Vehicle: </label>
+			<select v-model="vehicle" name="vehicle">
+				<option
+					v-for="vehicle in vehicles"
+					v-bind:key="vehicle"
+					:value="vehicle"
+				>
+					{{ vehicle }}
+				</option>
+			</select> -->
 		</div>
+		
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 
@@ -15,6 +38,43 @@
 <script>
 export default {
 	name: "EVAForm",
+	data() {
+		return {
+			search: "",
+      vehicle: "Gemini IV",
+      vehicles: [
+				'Gemini IV', 'Gemini VIII', 'Gemini IX-A', 'Gemini X', 'Gemini XI', 'Gemini XII', 'Apollo 9', 'Apollo 11', 
+				'Apollo 12', 'Apollo 14', 'Apollo 15', 'Apollo 16', 'Apollo 17', 'Skylab 2', 'Skylab 3', 'Skylab 4', 'STS-5', 
+				'STS-6', 'STS-41B', 'STS-41C', 'STS-41G', 'STS-51A', 'STS-51D', 'STS-51I', 'STS-61B', 'STS-31', 'STS-37', 
+				'STS-49', 'STS-54', 'STS-57', 'STS-51', 'STS-61 /|HST-1', 'STS-64', 'STS-63', 'STS-69', 'STS-72',
+				'STS-76', 'STS-80', 'STS-82 /|HST-2', 'STS-86', 'STS-87', 'STS-88/2A', 'STS-96/2A.1', 'STS-103/|HST-3A', 
+				'STS-101/2A.2a', 'STS-106/2A.2b', 'STS-92/3A', 'STS-97/4A', 'STS-98/5A', 'STS-102/5A.1', 'STS-100/6A', 
+				'STS-104/7A', 'STS-105/7A.1', 'STS-108/UF1', 'Incr-4', 'STS-109/|HST-3B', 'STS-110/8A', 'STS-111/UF2', 
+				'STS-112/9A', 'STS-113/11A', 'Incr-6', 'STS-114/LF1', 'Incr-12', 'STS-121 / ULF1.1', 'Incr-13', 'STS-115/12A',
+				'STS-116/12A.1', 'Incr-14', 'Incr-16', 'STS-117/13A', 'Incr-15', 'STS-118/13A.1', 'STS-120/10A', 'STS-122/1E', 
+				'STS-123/1JA', 'STS-124/1J', 'STS-126/ULF2', 'STS-127/2JA', 'STS-119/15A', 'STS-125/HST 4', 'STS-128/17A', 
+				'STS-129/ULF3', 'STS-130/20A', 'STS-131/19A', 'STS-132/ULF4', 'Incr-24', 'STS-133/ULF5', 'STS-134/ULF6', 
+				'ISS-Incr 28 during STS-135/ULF7', 'ISS-Incr 32', 'ISS Incr-35', 'ISS Incr-36', 'Voskhod 2', 'Soyuz 4&5', 
+				'Soyuz 12', 'Soyuz 26|Salyut 6', 'Soyuz 29|Salyut 6', 'Soyuz 32|Salyut 6', 'Soyuz T-5|Salyut 7', 
+				'Soyuz T-9|Salyut 7', 'Soyuz T-10|Salyut 7', 'Soyuz T-12|Salyut 7', 'Soyuz T-13|Salyut 7', 'Soyuz T-15|Salyut 7', 
+				'Soyuz TM-2|Mir', 'Soyuz TM-4|Mir', 'Soyuz TM-7|Mir', 'Soyuz TM-8|Mir', 'Soyuz TM-17|Mir 16', 'Soyuz TM-9|Mir', 
+				'Soyuz TM-10|Mir', 'Soyuz TM-11|Mir', 'Soyuz TM-12|Mir', 'Soyuz TM-13|Mir', 'Soyuz TM-14|Mir', 'Soyuz TM-15|Mir',
+				'Soyuz TM-16|Mir 15', 'Soyuz TM-18|Mir 17', 'Soyuz TM-19|Mir 18', 'Soyuz TM-20|Mir 19', 'Soyuz TM-X|Mir 20',
+				'Soyuz TM-23|Mir 21', 'Soyuz TM-24|Mir 22', 'Soyuz TM-25|Mir 23', 'Soyuz TM-26|Mir 24', 'Soyuz TM-27|Mir 25',
+				'Soyuz TM-28|Mir 26', 'Soyuz TM-29|Mir 27', 'Soyuz TM-30|Mir 28', 'ISS Incr-2', 'ISS Incr-3', 'ISS Incr-4',
+				'ISS Incr-5', 'ISS Incr-8', 'ISS Incr-9', 'ISS Incr-10', 'ISS Incr-26', 'ISS Incr-11', 'ISS Incr-12', 
+				'ISS Incr-13', 'ISS Incr-14', 'ISS Incr-15', 'ISS Incr-17', 'ISS Incr-18', 'ISS Incr-19', 'ISS Incr-22', 
+				'ISS Incr-24', 'ISS Incr-25', 'ISS Incr-28', 'ISS Incr-30', 'ISS Incr-32'
+      ],
+    };
+	},
+  computed: {
+		filteredVehicles: function() {
+			return this.vehicles.filter((vehicle) => {
+				return vehicle.match(this.search);
+			});
+		}
+  }
 }
 </script>
 
@@ -22,6 +82,10 @@ export default {
 
 form {
 	width: 50%;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 </style>

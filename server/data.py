@@ -14,6 +14,9 @@ class Data():
 			self.helper_object = Helper()
 			self.eva_data = pd.read_csv('./data/eva.csv', error_bad_lines=False)
 			self.space_data = pd.read_csv('./data/Space_Corrected.csv', error_bad_lines=False)
+		
+		def test_scrap(self):
+			print(list(pd.unique(self.eva_data['Vehicle'])))
 	
 		def eva_count_by_year(self):
 			self.eva_data['Date'] = self.helper_object.convert_date_column_from_obj_to_date(self.eva_data)
@@ -21,5 +24,5 @@ class Data():
 			return self.helper_object.get_data_in_correct_graph_format(eva_count)
 
 
-# obj = Data()
-# obj.eva_count_by_year()
+obj = Data()
+obj.test_scrap()
