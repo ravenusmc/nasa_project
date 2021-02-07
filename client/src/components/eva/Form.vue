@@ -1,32 +1,27 @@
 <template>
 	<div>
 
-	<form>
+	<form @submit="submitSelection">
+		<p>Please Select the following:</p>
 		<div class="form-group">
-			<input type='text' v-model="search" placeholder="Search For Vehicle"/>
-			<!-- <select v-model="vehicle" name="vehicle"> -->
-			<option
-					v-for="vehicle in filteredVehicles"
-					v-bind:key="vehicle"
-					:value="vehicle"
-				>
+			<input type="text" list="vehicles" v-model="vehicle" placeholder="Search For Vehicle" />
+			<datalist id="vehicles">
+				<option v-for="vehicle in vehicles" v-bind:key="vehicle">
 					{{ vehicle }}
 				</option>
-			<!-- </select> -->
-			<!-- <div v-for="vehicle in filteredVehicles" v-bind:key="vehicle">
-				{{ vehicle }}
-			</div> -->
+			</datalist>
+		</div>
 
-			<!-- <label for="vehicle">Select Vehicle: </label>
-			<select v-model="vehicle" name="vehicle">
-				<option
-					v-for="vehicle in vehicles"
-					v-bind:key="vehicle"
-					:value="vehicle"
-				>
-					{{ vehicle }}
-				</option>
-			</select> -->
+		<div class="custom-control custom-radio">
+			<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+			<label class="custom-control-label" for="customRadio1">Ignore Year</label>
+		</div>
+
+		<div class="form-group">
+			<label>Year One:</label>
+			<input type="number" v-model='yearOne' name="yearOne" placeholder="Enter First Year">&nbsp;
+			<label>Year Two:</label>
+			<input type="number" v-model="yearTwo" name="yearTwo" placeholder="Enter Second Year">
 		</div>
 		
 		<button type="submit" class="btn btn-primary">Submit</button>
@@ -36,12 +31,16 @@
 </template>
 
 <script>
+
 export default {
 	name: "EVAForm",
 	data() {
 		return {
+			ignoreYear: false,
+			yearOne: 1963,
+			yearTwo: 2013,
 			search: "",
-      vehicle: "Gemini IV",
+			vehicle: "Gemini IV",
       vehicles: [
 				'Gemini IV', 'Gemini VIII', 'Gemini IX-A', 'Gemini X', 'Gemini XI', 'Gemini XII', 'Apollo 9', 'Apollo 11', 
 				'Apollo 12', 'Apollo 14', 'Apollo 15', 'Apollo 16', 'Apollo 17', 'Skylab 2', 'Skylab 3', 'Skylab 4', 'STS-5', 
@@ -74,7 +73,31 @@ export default {
 				return vehicle.match(this.search);
 			});
 		}
-  }
+	},
+	methods: {
+		submitSelection(evt) {
+			evt.preventDefault();
+			if (this.yearOne < 1963){
+        alert('The first year must be greater than 1962!')
+      }else if (this.yearTwo > 2013){
+        alert('The second year must not be greater than 2013!')
+      }else if (this.yearOne >= this.yearTwo){
+        alert('The first year must be less than the second year!')
+      }else if (this.yearTwo <= this.yearOne){
+        alert('The second year must be greater than the first year!')
+      }
+      // this.camera = this.changeCameraName(this.camera);
+      // const payload = {
+      //   solDay: this.solDay,
+      //   camera: this.camera,
+      // };
+      // const message = {
+      //   loading: true,
+      // };
+      // this.$store.dispatch('mars/fetchMarsLoadingMessage', {message});
+      // this.$store.dispatch('mars/fetchMarsData', {payload})
+    },
+	}
 }
 </script>
 
