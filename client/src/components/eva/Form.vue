@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 
 export default {
 	name: "EVAForm",
@@ -75,6 +76,7 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions([ "eva/fetchVehicleInformation"]),
 		submitSelection(evt) {
 			evt.preventDefault();
 			if (this.yearOne < 1963){
@@ -85,17 +87,15 @@ export default {
         alert('The first year must be less than the second year!')
       }else if (this.yearTwo <= this.yearOne){
         alert('The second year must be greater than the first year!')
-      }
-      // this.camera = this.changeCameraName(this.camera);
-      // const payload = {
-      //   solDay: this.solDay,
-      //   camera: this.camera,
-      // };
-      // const message = {
-      //   loading: true,
-      // };
-      // this.$store.dispatch('mars/fetchMarsLoadingMessage', {message});
-      // this.$store.dispatch('mars/fetchMarsData', {payload})
+      }else {
+				const payload = {
+					vehicle: this.vehicle,
+					yearOne: this.yearOne,
+					yearTwo: this.yearTwo,
+				};
+				this.$store.dispatch('eva/fetchVehicleInformation', { payload })
+			}
+
     },
 	}
 }
