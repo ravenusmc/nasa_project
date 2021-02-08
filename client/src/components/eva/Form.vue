@@ -24,7 +24,7 @@
 			<input type="number" v-model="yearTwo" name="yearTwo" placeholder="Enter Second Year">
 		</div>
 		
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-outline-primary">Submit</button>
 	</form>
 
 	</div>

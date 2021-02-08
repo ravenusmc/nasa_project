@@ -2,7 +2,9 @@
 	<div>
 		<AltNavbar />
 		<Data />
-		<EVAForm />
+		<div class='eva-form'>
+			<EVAForm />
+		</div>
 		<Footer />
 	</div>
 </template>
@@ -25,5 +27,12 @@ export default {
 </script>
 
 <style scoped>
+
+.eva-form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
 
 </style>

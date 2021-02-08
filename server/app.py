@@ -22,5 +22,15 @@ def route_EVA_count_data():
         eva_count_data = data_obj.eva_count_by_year()
         return jsonify(eva_count_data)
 
+# This route will get the data for the EVA Vehicle Information
+@app.route('/getEvaVehicleInformation', methods=['GET', 'POST'])
+def route_EVA_vehicle_data():
+    if request.method == 'POST':
+        data_obj = Data()
+        post_data = request.get_json()
+        data_obj.eva_vehicle_information(post_data)
+        name = 'Mike'
+        return jsonify(name)
+
 if __name__ == '__main__':
     app.run()

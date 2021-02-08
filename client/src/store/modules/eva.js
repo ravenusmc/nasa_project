@@ -29,9 +29,13 @@ const actions = {
 	},
 
 	fetchVehicleInformation: ({commit}, {payload}) => {
-		console.log(payload)
-		let data = []
-		commit('setEvaCountData', data);
+		const path = 'http://localhost:5000/getEvaVehicleInformation';
+		axios.post(path, payload)
+			.then((res) => {
+				console.log(res.data)
+				let data = []
+				commit('setEvaCountData', data);
+			})
 	},
 
 };

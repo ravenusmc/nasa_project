@@ -22,7 +22,10 @@ class Data():
 			self.eva_data['Date'] = self.helper_object.convert_date_column_from_obj_to_date(self.eva_data)
 			eva_count = self.helper_object.get_eva_count_by_year(self.eva_data)
 			return self.helper_object.get_data_in_correct_graph_format(eva_count)
+		
+		def eva_vehicle_information(self, post_data):
+			print(post_data)
 
 
-obj = Data()
-obj.test_scrap()
+# obj = Data()
+# obj.test_scrap()
