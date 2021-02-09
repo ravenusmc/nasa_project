@@ -24,8 +24,8 @@ class Data():
 			return self.helper_object.get_data_in_correct_graph_format(eva_count)
 		
 		def eva_vehicle_information(self, post_data):
-			
-			death_data_set = self.eva_data[(self.eva_data.FATALITY_YEAR >= yearOne) & (self.data.FATALITY_YEAR <= yearTwo)]
+
+			# death_data_set = self.eva_data[(self.eva_data.FATALITY_YEAR >= yearOne) & (self.data.FATALITY_YEAR <= yearTwo)]
 			print(post_data)
 
 

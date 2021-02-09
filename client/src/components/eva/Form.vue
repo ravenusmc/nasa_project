@@ -13,8 +13,10 @@
 		</div>
 
 		<div class="custom-control custom-radio">
-			<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-			<label class="custom-control-label" for="customRadio1">Ignore Year</label>
+			<input type="radio" v-bind:value="true" v-model="years">
+			<label for='a'>Use Years</label>
+			<input type="radio" v-bind:value="false" v-model="years">
+			<label for='b'>Ignore Years</label>
 		</div>
 
 		<div class="form-group">
@@ -37,7 +39,7 @@ export default {
 	name: "EVAForm",
 	data() {
 		return {
-			ignoreYear: false,
+			years: false,
 			yearOne: 1963,
 			yearTwo: 2013,
 			search: "",
@@ -92,7 +94,9 @@ export default {
 					vehicle: this.vehicle,
 					yearOne: this.yearOne,
 					yearTwo: this.yearTwo,
+					useYears: this.years
 				};
+				console.log(payload);
 				this.$store.dispatch('eva/fetchVehicleInformation', { payload })
 			}
 
