@@ -9,10 +9,12 @@
       <div>
         <h4 class="center">Title: {{ this.pictureData.title }}</h4>
         <div class="picture-div">
-          <img :src="pictureData.hdurl" :alt="pictureData.title" />
+          <img v-if="noImage" :src="pictureData.hdurl" :alt="pictureData.title" />
+          <iframe v-if="!noImage" width="700" height="700" :src="pictureData.url" ></iframe>
         </div>
-        <h4 class="center">Explanation:</h4>
+
         <div class="explanation-div">
+          <h4 class="center">Explanation:</h4>
           <p>
             {{ this.pictureData.explanation }}
           </p>
@@ -33,7 +35,13 @@ import { mapGetters } from "vuex";
 export default {
   name: "Data",
   computed: {
-    ...mapGetters("picture", ["pictureData", "noDataMessage"]),
+    ...mapGetters("picture", 
+    [
+      "pictureData", 
+      "noDataMessage",
+      "noImage",
+    ]
+    ),
   }, // End Computed properties
 };
 </script>
@@ -55,7 +63,7 @@ img {
 }
 
 .explanation-div {
-  margin: 0% 10%;
+  margin: 3% 10%;
   line-height: 2em;
 }
 

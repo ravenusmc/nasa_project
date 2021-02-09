@@ -8,11 +8,13 @@ Vue.use(Vuex)
 const state = {
 	pictureData: [],
 	noDataMessage: false,
+	noImage: true,
 };
 
 const getters = {
 	pictureData: state => state.pictureData,
 	noDataMessage: state => state.noDataMessage,
+	noImage: state => state.noImage,
 };
 
 const actions = {
@@ -21,6 +23,9 @@ const actions = {
 		axios
 			.get(`https://api.nasa.gov/planetary/apod?api_key=${nasaAPI.nasaAPI}`)
 			.then(response => {
+				if (!Object.prototype.hasOwnProperty.call(response.data, "hdurl")) {
+					commit('setNoImage', false)
+				}
 				commit('setPictureData', response.data)
 			})
 			.catch(error => {
@@ -39,6 +44,10 @@ const mutations = {
 
 	setNoDataMessage(state, data) {
 		state.noDataMessage = data
+	},
+
+	setNoImage(state, data) {
+		state.noImage = data
 	}
 
 };
