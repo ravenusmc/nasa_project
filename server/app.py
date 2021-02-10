@@ -28,9 +28,9 @@ def route_EVA_vehicle_data():
     if request.method == 'POST':
         data_obj = Data()
         post_data = request.get_json()
-        data_obj.eva_vehicle_information(post_data)
-        name = 'Mike'
-        return jsonify(name)
+        eva_data_information = data_obj.eva_vehicle_information(post_data)
+        print(eva_data_information)
+        return jsonify(eva_data_information)
 
 if __name__ == '__main__':
     app.run()

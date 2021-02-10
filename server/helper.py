@@ -26,9 +26,21 @@ class Helper():
 				rows.append(count)
 				chartData.append(rows)
 			except KeyError:
-				pass
-				# print('Error, but program will continue to function')
+				print('Error, but program will continue to function')
 			initial_year += 1
 		return chartData
+	
+	def get_eva_data_for_years(self, data_object, post_data):
+		# convert the 'Date' column to datetime format
+		data_object['Date'] = pd.to_datetime(data_object['Date'])
+		return data_object[(data_object['Date']>= pd.to_datetime(str(post_data['yearOne']))) & (data_object['Date'] <= pd.to_datetime(str(post_data['yearTwo'])))]
 
-
+	def build_years_data_set(self, years_data_set):
+		years_eva_list = []
+		# What I need to get: crew, Vehicle, Date, Purpose 
+		for index, row in years_data_set.iterrows():
+			years_eva_dictionary = {}
+			years_eva_dictionary['Country'] = row['Country']
+			years_eva_dictionary['Crew'] = row['Crew']
+			years_eva_list.append(years_eva_dictionary)
+		return years_eva_list
