@@ -36,11 +36,19 @@ class Helper():
 		return data_object[(data_object['Date']>= pd.to_datetime(str(post_data['yearOne']))) & (data_object['Date'] <= pd.to_datetime(str(post_data['yearTwo'])))]
 
 	def build_years_data_set(self, years_data_set):
+		# years_data_set = pd.unique(years_data_set['Vehicle'])
 		years_eva_list = []
-		# What I need to get: crew, Vehicle, Date, Purpose 
 		for index, row in years_data_set.iterrows():
 			years_eva_dictionary = {}
 			years_eva_dictionary['Country'] = row['Country']
 			years_eva_dictionary['Crew'] = row['Crew']
+			years_eva_dictionary['Vehicle'] = row['Vehicle']
+			years_eva_dictionary['Duration'] = row['Duration']
+			years_eva_dictionary['Purpose'] = row['Purpose']
 			years_eva_list.append(years_eva_dictionary)
 		return years_eva_list
+	
+	def get_eva_by_vehicle(self, data_object, post_data):
+		#vehicle_data_set = data_object[(data_object.Vehicle == post_data['vehicle'])]
+		vehicle_data_set = data_object[data_object['Vehicle'] == post_data['vehicle']]
+		print(vehicle_data_set)
