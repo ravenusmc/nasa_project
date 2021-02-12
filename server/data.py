@@ -29,8 +29,9 @@ class Data():
 				years_data_set = self.helper_object.get_eva_data_for_years(self.eva_data, post_data)
 				eva_data_information = self.helper_object.build_years_data_set(years_data_set)
 			else: 
-				self.helper_object.get_eva_by_vehicle(self.eva_data, post_data)
-				#return eva_data_information
+				vehicle_data = self.helper_object.get_eva_by_vehicle(self.eva_data, post_data)
+				eva_data_information = self.helper_object.build_eva_data_set(vehicle_data)
+			return eva_data_information
 
 
 

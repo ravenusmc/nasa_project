@@ -49,6 +49,16 @@ class Helper():
 		return years_eva_list
 	
 	def get_eva_by_vehicle(self, data_object, post_data):
-		#vehicle_data_set = data_object[(data_object.Vehicle == post_data['vehicle'])]
-		vehicle_data_set = data_object[data_object['Vehicle'] == post_data['vehicle']]
-		print(vehicle_data_set)
+		return data_object[data_object['Vehicle'] == post_data['vehicle']]
+	
+	def build_eva_data_set(self, vehicle_data):
+		vehicle_eva_list = []
+		for index, row in vehicle_data.iterrows():
+			vehicle_eva_dictionary = {}
+			vehicle_eva_dictionary['Country'] = row['Country']
+			vehicle_eva_dictionary['Crew'] = row['Crew']
+			vehicle_eva_dictionary['Vehicle'] = row['Vehicle']
+			vehicle_eva_dictionary['Duration'] = row['Duration']
+			vehicle_eva_dictionary['Purpose'] = row['Purpose']
+			vehicle_eva_list.append(vehicle_eva_dictionary)
+		return vehicle_eva_list

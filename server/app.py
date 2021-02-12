@@ -29,7 +29,6 @@ def route_EVA_vehicle_data():
         data_obj = Data()
         post_data = request.get_json()
         eva_data_information = data_obj.eva_vehicle_information(post_data)
-        print(eva_data_information)
         return jsonify(eva_data_information)
 
 if __name__ == '__main__':
