@@ -38,13 +38,16 @@ class Helper():
 	def build_years_data_set(self, years_data_set):
 		# years_data_set = pd.unique(years_data_set['Vehicle'])
 		years_eva_list = []
+		index = 0
 		for index, row in years_data_set.iterrows():
 			years_eva_dictionary = {}
+			years_eva_dictionary['Index'] = index
 			years_eva_dictionary['Country'] = row['Country']
 			years_eva_dictionary['Crew'] = row['Crew']
 			years_eva_dictionary['Vehicle'] = row['Vehicle']
 			years_eva_dictionary['Duration'] = row['Duration']
 			years_eva_dictionary['Purpose'] = row['Purpose']
+			index += 1
 			years_eva_list.append(years_eva_dictionary)
 		return years_eva_list
 	
@@ -53,12 +56,15 @@ class Helper():
 	
 	def build_eva_data_set(self, vehicle_data):
 		vehicle_eva_list = []
+		index = 0
 		for index, row in vehicle_data.iterrows():
 			vehicle_eva_dictionary = {}
+			vehicle_eva_dictionary['Index'] = index
 			vehicle_eva_dictionary['Country'] = row['Country']
 			vehicle_eva_dictionary['Crew'] = row['Crew']
 			vehicle_eva_dictionary['Vehicle'] = row['Vehicle']
 			vehicle_eva_dictionary['Duration'] = row['Duration']
 			vehicle_eva_dictionary['Purpose'] = row['Purpose']
+			index += 1
 			vehicle_eva_list.append(vehicle_eva_dictionary)
 		return vehicle_eva_list
