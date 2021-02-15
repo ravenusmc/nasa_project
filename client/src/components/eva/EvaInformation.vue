@@ -40,9 +40,9 @@ export default {
 <style scoped>
 
 .eva-information-div {
+	margin: 0 3%;
 	margin-top: 50px;
 	display: grid; 
-	/* grid-template-columns: 1fr 1fr; */
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	grid-gap: 2em;
 	justify-content: center;

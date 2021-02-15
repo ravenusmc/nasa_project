@@ -25,7 +25,10 @@ const actions = {
 					res.data[i][0] = date
 				}
 				commit('setEvaCountData', res.data);
-			});
+			})
+			.catch(error => {
+				console.log(error);
+			})
 	},
 
 	fetchVehicleInformation: ({commit}, {payload}) => {
@@ -33,6 +36,9 @@ const actions = {
 		axios.post(path, payload)
 			.then((res) => {
 				commit('setVehicleInformation', res.data);
+			})
+			.catch(error => {
+				console.log(error);
 			})
 	},
 

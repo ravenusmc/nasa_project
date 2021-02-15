@@ -2,9 +2,9 @@
 	<div>
 
 	<form @submit="submitSelection">
-		<p>Please Select the following:</p>
+
 		<div class="form-group">
-			<input type="text" list="vehicles" v-model="vehicle" placeholder="Search For Vehicle" />
+			<input type="text" list="vehicles" v-model="vehicle" placeholder="Search For Ship" />
 			<datalist id="vehicles">
 				<option v-for="vehicle in vehicles" v-bind:key="vehicle">
 					{{ vehicle }}
@@ -12,18 +12,26 @@
 			</datalist>
 		</div>
 
-		<div class="custom-control custom-radio">
-			<input type="radio" v-bind:value="true" v-model="years">
-			<label for='a'>Use Years</label>
-			<input type="radio" v-bind:value="false" v-model="years">
-			<label for='b'>Ignore Years</label>
+		<div class="custom-control radio-button">
+			<div>
+				<input type="radio" v-bind:value="true" v-model="years">
+				<label for='a'>Use Years</label>
+			</div>
+			<div>
+				<input type="radio" v-bind:value="false" v-model="years">
+				<label for='b'>Ignore Years</label>
+			</div>
 		</div>
 
-		<div class="form-group">
-			<label>Year One:</label>
-			<input type="number" v-model='yearOne' name="yearOne" placeholder="Enter First Year">&nbsp;
-			<label>Year Two:</label>
-			<input type="number" v-model="yearTwo" name="yearTwo" placeholder="Enter Second Year">
+		<div class="form-group year-area">
+			<div>
+				<label>Year One:</label>
+				<input type="number" v-model='yearOne' name="yearOne" placeholder="Enter First Year">&nbsp;
+			</div>
+			<div>
+				<label>Year Two:</label>
+				<input type="number" v-model="yearTwo" name="yearTwo" placeholder="Enter Second Year">
+			</div>
 		</div>
 		
 		<button type="submit" class="btn btn-outline-primary">Submit</button>
@@ -43,7 +51,7 @@ export default {
 			yearOne: 1963,
 			yearTwo: 2013,
 			search: "",
-			vehicle: "Gemini IV",
+			vehicle: "",
       vehicles: [
 				'Gemini IV', 'Gemini VIII', 'Gemini IX-A', 'Gemini X', 'Gemini XI', 'Gemini XII', 'Apollo 9', 'Apollo 11', 
 				'Apollo 12', 'Apollo 14', 'Apollo 15', 'Apollo 16', 'Apollo 17', 'Skylab 2', 'Skylab 3', 'Skylab 4', 'STS-5', 
@@ -108,11 +116,30 @@ export default {
 <style scoped>
 
 form {
-	width: 50%;
 	border: 2px solid black;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
+	padding: 20px;
+}
+
+.radio-button {
+	display: flex; 
+	flex-direction: column;
+}
+
+.year-area {
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+}
+
+@media only all and (max-width: 900px) {
+
+	form {
+		flex-direction: column;
+	}
+
 }
 
 </style>

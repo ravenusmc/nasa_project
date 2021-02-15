@@ -49,6 +49,9 @@ const actions = {
 					commit('setMarsLoadingMessage', false);
 				}
 			})
+			.catch(error => {
+				console.log(error);
+			})
 	},
 
 	fetchMarsLoadingMessage ({ commit }, {message}) {
