@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import datetime
 
+
 class Helper():
 
 	def convert_date_column_from_obj_to_date(self, data_object):
@@ -54,11 +55,13 @@ class Helper():
 	def get_eva_by_vehicle(self, data_object, post_data):
 		return data_object[data_object['Vehicle'] == post_data['vehicle']]
 	
-	def build_eva_data_set(self, vehicle_data):
+	def build_eva_data_set(self, post_data, vehicle_data):
+		print(post_data['vehicle'])
 		vehicle_eva_list = []
 		index = 0
 		for index, row in vehicle_data.iterrows():
 			vehicle_eva_dictionary = {}
+			# https://en.wikipedia.org/api/rest_v1/page/summary/Apollo_11
 			vehicle_eva_dictionary['Index'] = index
 			vehicle_eva_dictionary['Country'] = row['Country']
 			vehicle_eva_dictionary['Crew'] = row['Crew']

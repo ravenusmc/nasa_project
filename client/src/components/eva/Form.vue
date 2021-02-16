@@ -26,11 +26,11 @@
 		<div class="form-group year-area">
 			<div>
 				<label>Year One:</label>
-				<input type="number" v-model='yearOne' name="yearOne" placeholder="Enter First Year">&nbsp;
+				<input class='year-input' type="number" v-model='yearOne' name="yearOne" placeholder="Enter First Year">&nbsp;
 			</div>
 			<div>
 				<label>Year Two:</label>
-				<input type="number" v-model="yearTwo" name="yearTwo" placeholder="Enter Second Year">
+				<input class='year-input' type="number" v-model="yearTwo" name="yearTwo" placeholder="Enter Second Year">
 			</div>
 		</div>
 		
@@ -126,6 +126,10 @@ form {
 .radio-button {
 	display: flex; 
 	flex-direction: column;
+}
+
+.year-input {
+	margin-left: 10px;
 }
 
 .year-area {
