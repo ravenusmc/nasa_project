@@ -28,7 +28,6 @@ class Data():
 			if post_data['useYears']:
 				years_data_set = self.helper_object.get_eva_data_for_years(self.eva_data, post_data)
 				eva_data_information = self.helper_object.build_years_data_set(years_data_set)
-				print(eva_data_information)
 			else: 
 				vehicle_data = self.helper_object.get_eva_by_vehicle(self.eva_data, post_data)
 				eva_data_information = self.helper_object.build_eva_data_set(post_data, vehicle_data)

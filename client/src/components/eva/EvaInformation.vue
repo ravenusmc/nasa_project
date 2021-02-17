@@ -14,7 +14,7 @@
 								<br/>
 								Purpose: {{ d.Purpose }}
 							</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<a :href="d.wikipedia_url" class="btn btn-primary">Go To Wikipedia Page</a>
 						</div>
 					</div>
 				</div>

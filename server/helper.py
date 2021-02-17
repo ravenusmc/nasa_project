@@ -5,8 +5,13 @@ import numpy as np
 import pandas as pd
 import datetime
 
+#importing file I built
+from web import * 
 
 class Helper():
+
+	def __init__(self):
+		self.web_object = Web()
 
 	def convert_date_column_from_obj_to_date(self, data_object):
 		return pd.to_datetime(data_object['Date'])
@@ -56,18 +61,21 @@ class Helper():
 		return data_object[data_object['Vehicle'] == post_data['vehicle']]
 	
 	def build_eva_data_set(self, post_data, vehicle_data):
-		print(post_data['vehicle'])
+		wikipedia_url = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+		vehicle_name_for_url = post_data['vehicle'].replace(" ", "_")
+		full_url = wikipedia_url + vehicle_name_for_url
 		vehicle_eva_list = []
 		index = 0
+		wikipedia_url = self.web_object.get_eva_vehicle_wikipedia_url(full_url)
 		for index, row in vehicle_data.iterrows():
 			vehicle_eva_dictionary = {}
-			# https://en.wikipedia.org/api/rest_v1/page/summary/Apollo_11
 			vehicle_eva_dictionary['Index'] = index
 			vehicle_eva_dictionary['Country'] = row['Country']
 			vehicle_eva_dictionary['Crew'] = row['Crew']
 			vehicle_eva_dictionary['Vehicle'] = row['Vehicle']
 			vehicle_eva_dictionary['Duration'] = row['Duration']
 			vehicle_eva_dictionary['Purpose'] = row['Purpose']
+			vehicle_eva_dictionary['wikipedia_url'] = wikipedia_url
 			index += 1
 			vehicle_eva_list.append(vehicle_eva_dictionary)
 		return vehicle_eva_list
