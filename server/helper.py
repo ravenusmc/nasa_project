@@ -67,6 +67,7 @@ class Helper():
 		vehicle_eva_list = []
 		index = 0
 		wikipedia_url = self.web_object.get_eva_vehicle_wikipedia_url(full_url)
+		wikipedia_pic = self.web_object.get_eva_vehicle_wikipedia_picture(full_url)
 		for index, row in vehicle_data.iterrows():
 			vehicle_eva_dictionary = {}
 			vehicle_eva_dictionary['Index'] = index
@@ -76,6 +77,7 @@ class Helper():
 			vehicle_eva_dictionary['Duration'] = row['Duration']
 			vehicle_eva_dictionary['Purpose'] = row['Purpose']
 			vehicle_eva_dictionary['wikipedia_url'] = wikipedia_url
+			vehicle_eva_dictionary['wikipedia_pic'] = wikipedia_pic
 			index += 1
 			vehicle_eva_list.append(vehicle_eva_dictionary)
 		return vehicle_eva_list

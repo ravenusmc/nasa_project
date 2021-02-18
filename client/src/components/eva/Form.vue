@@ -97,14 +97,15 @@ export default {
         alert('The first year must be less than the second year!')
       }else if (this.yearTwo <= this.yearOne){
         alert('The second year must be greater than the first year!')
-      }else {
+			}else if ( ((this.yearTwo - this.yearOne) > 5) && this.years) {
+				alert('Plesae do NOT Search for more than a five year time span!')
+			}else {
 				const payload = {
 					vehicle: this.vehicle,
 					yearOne: this.yearOne,
 					yearTwo: this.yearTwo,
 					useYears: this.years
 				};
-				console.log(payload);
 				this.$store.dispatch('eva/fetchVehicleInformation', { payload })
 			}
 

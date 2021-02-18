@@ -4,7 +4,8 @@
 
 			<div class='eva-information-div'>
 				<div class='center-card' v-for="d of this.vehicleInformation" v-bind:key="d.index">
-					<div class="card" style="width: 25rem; height: 400px">
+					<div class="card test" style="width: 25rem; height: 800px">
+						<img class="card-img-top" :src="d.wikipedia_pic" alt="Image of space ship" style="width: 24.9rem; height: 400px">
 						<div class="card-body">
 							<h3 class="card-title">Vehicle: {{ d.Vehicle }}</h3>
 							<h4 class="card-title">Crew: {{ d.Crew }}</h4>
@@ -55,7 +56,12 @@ export default {
 }
 
 .fix-class-text {
-	height: 50%;
+	height: auto;
+	/* clear: both; */
+}
+
+.test {
+	border: 2px solid red;
 }
 
 </style>

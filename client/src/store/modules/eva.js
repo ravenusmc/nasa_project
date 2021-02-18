@@ -35,7 +35,6 @@ const actions = {
 		const path = 'http://localhost:5000/getEvaVehicleInformation';
 		axios.post(path, payload)
 			.then((res) => {
-				console.log(res.data)
 				commit('setVehicleInformation', res.data);
 			})
 			.catch(error => {
