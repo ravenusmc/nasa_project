@@ -42,10 +42,14 @@ class Helper():
 		return data_object[(data_object['Date']>= pd.to_datetime(str(post_data['yearOne']))) & (data_object['Date'] <= pd.to_datetime(str(post_data['yearTwo'])))]
 
 	def build_years_data_set(self, years_data_set):
-		# years_data_set = pd.unique(years_data_set['Vehicle'])
+		wikipedia_web_address = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 		years_eva_list = []
 		index = 0
 		for index, row in years_data_set.iterrows():
+			vehicle_name_for_url = row['Vehicle'].replace(" ", "_")
+			full_url = wikipedia_web_address + vehicle_name_for_url
+			wikipedia_url = self.web_object.get_eva_vehicle_wikipedia_url(full_url)
+			wikipedia_pic = self.web_object.get_eva_vehicle_wikipedia_picture(full_url)
 			years_eva_dictionary = {}
 			years_eva_dictionary['Index'] = index
 			years_eva_dictionary['Country'] = row['Country']
@@ -53,6 +57,8 @@ class Helper():
 			years_eva_dictionary['Vehicle'] = row['Vehicle']
 			years_eva_dictionary['Duration'] = row['Duration']
 			years_eva_dictionary['Purpose'] = row['Purpose']
+			years_eva_dictionary['wikipedia_url'] = wikipedia_url
+			years_eva_dictionary['wikipedia_pic'] = wikipedia_pic
 			index += 1
 			years_eva_list.append(years_eva_dictionary)
 		return years_eva_list
