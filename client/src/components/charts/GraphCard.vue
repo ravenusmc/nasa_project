@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapActions } from 'vuex';
 
 export default {
@@ -37,9 +38,15 @@ export default {
           // This pulls out the specific date from the element that the user
           // clicked on
           let date = this.data[row][0]
-          console.log(date)
+          // let startOfYear = moment(this.data[row][0]).format("DD/M/YYYY")
+          // console.log(startOfYear)
+          let startOfYear = moment(date); 
+          let endOfYear = startOfYear.clone().add(11, 'month').add(30, 'days'); 
+          // console.log(startOfYear.format("M/DD/YYYY"))
+          // console.log(endOfYear.format("M/DD/YYYY"))
           const payload = {
-            date,
+            yearOne: startOfYear.format("M/DD/YYYY"),
+            yearTwo: endOfYear.format("M/DD/YYYY")
           };
           this.fetchEVADrillDownData({ payload })
         }
