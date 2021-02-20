@@ -7,11 +7,13 @@ Vue.use(Vuex)
 const state = {
 	evaCountData: [],
 	vehicleInformation: [],
+	evaDrillDownInformation: [],
 };
 
 const getters = {
 	evaCountData: state => state.evaCountData,
 	vehicleInformation: state => state.vehicleInformation,
+	evaDrillDownInformation: state => state.evaDrillDownInformation,
 };
 
 const actions = {
@@ -21,7 +23,7 @@ const actions = {
 		axios.post(path)
 			.then((res) => {
 				for (let i = 1; i < res.data.length; i++) {
-					let date = new Date(res.data[i][0],0,1)
+					let date = new Date(res.data[i][0], 0, 1)
 					res.data[i][0] = date
 				}
 				commit('setEvaCountData', res.data);
@@ -31,7 +33,7 @@ const actions = {
 			})
 	},
 
-	fetchVehicleInformation: ({commit}, {payload}) => {
+	fetchVehicleInformation: ({ commit }, { payload }) => {
 		const path = 'http://localhost:5000/getEvaVehicleInformation';
 		axios.post(path, payload)
 			.then((res) => {
@@ -40,6 +42,15 @@ const actions = {
 			.catch(error => {
 				console.log(error);
 			})
+	},
+
+	fetchEVADrillDownData: ({ commit }, { payload }) => {
+		const path = 'http://localhost:5000/getEvaDrillDownVehicleInformation';
+		axios.post(path, payload)
+			.then((res) => {
+				commit('setEvaDrillDownInformation', res.data);
+			})
+
 	},
 
 };
@@ -52,6 +63,10 @@ const mutations = {
 
 	setVehicleInformation(state, data) {
 		state.vehicleInformation = data
+	},
+
+	setEvaDrillDownInformation(state, data) {
+		state.evaDrillDownInformation = data
 	},
 
 };
