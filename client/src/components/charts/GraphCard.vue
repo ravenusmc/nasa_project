@@ -1,7 +1,12 @@
 <template>
 <div>
 
+  <Modal
+    :showModal="showModal"
+  />
+
   <GChart
+    v-if="showChart"
     :type="typeOne"
     :data="data"
     :options="options"
@@ -14,14 +19,19 @@
 <script>
 import moment from 'moment'
 import { mapActions } from 'vuex';
+import Modal from '@/components/charts/Modal.vue';
 
 export default {
 	name: 'GraphCard',
   props: ['typeOne', 'data', 'options'],
+  components: {
+    Modal,
+  },
   data(){
     return {
       Table: 'Table',
       showModal: false,
+      showChart: true,
       modalTitle: 'Drill Down Data for ',
       chartOptionsDrillDown: {
           title: 'Sentiment During World War 1',
@@ -49,6 +59,8 @@ export default {
             yearTwo: endOfYear.format("M/DD/YYYY")
           };
           this.fetchEVADrillDownData({ payload })
+          this.showModal = true
+          this.showChart = false
         }
       }, // End Chart Events
     }

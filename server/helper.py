@@ -46,7 +46,15 @@ class Helper():
 		years_eva_list = []
 		index = 0
 		for index, row in years_data_set.iterrows():
-			vehicle_name_for_url = row['Vehicle'].replace(" ", "_")
+			result_two = row['Vehicle'].find('/') 
+			if result_two >= 0:
+				result_two = result_two - 1
+				vehicle_name_for_url = vehicle_name_for_url[0:result_two]
+			else: 
+				vehicle_name_for_url = row['Vehicle'].replace(" ", "_")
+			result = vehicle_name_for_url.find('|') 
+			if result >= 0: 
+				vehicle_name_for_url = vehicle_name_for_url[0:result]
 			full_url = wikipedia_web_address + vehicle_name_for_url
 			wikipedia_url = self.web_object.get_eva_vehicle_wikipedia_url(full_url)
 			wikipedia_pic = self.web_object.get_eva_vehicle_wikipedia_picture(full_url)
