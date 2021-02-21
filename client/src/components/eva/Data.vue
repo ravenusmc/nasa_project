@@ -2,6 +2,7 @@
 	<div>
 
 		<GraphCard
+      class="graph-card"
 			:typeOne='typeOne'
 			:data='evaCountData'
 			:options='chartOptionsOne'>
@@ -45,5 +46,9 @@ export default {
 </script>
 
 <style scoped>
+
+.graph-card {
+  margin-top: 30px;
+}
 
 </style>

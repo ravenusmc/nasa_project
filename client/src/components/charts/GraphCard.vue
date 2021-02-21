@@ -1,10 +1,8 @@
 <template>
 <div>
 
-  <Modal
-    :showModal="showModal"
-  />
-
+  <Modal />
+    <!-- :showModal="showModal" -->
   <GChart
     v-if="showChart"
     :type="typeOne"
@@ -30,7 +28,6 @@ export default {
   data(){
     return {
       Table: 'Table',
-      showModal: false,
       showChart: true,
       modalTitle: 'Drill Down Data for ',
       chartOptionsDrillDown: {
@@ -59,7 +56,7 @@ export default {
             yearTwo: endOfYear.format("M/DD/YYYY")
           };
           this.fetchEVADrillDownData({ payload })
-          this.showModal = true
+          this.changeShowModalDrillDown()
           this.showChart = false
         }
       }, // End Chart Events
@@ -68,7 +65,11 @@ export default {
   methods: {
     ...mapActions("eva", [
       'fetchEVADrillDownData',
+      'changeShowModalDrillDown'
     ]),
+    // ...mapMutations("eva", [
+    //   'setShowModal',
+    // ]),
   }, // End of methods 
 };
 </script>

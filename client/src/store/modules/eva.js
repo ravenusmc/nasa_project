@@ -8,12 +8,14 @@ const state = {
 	evaCountData: [],
 	vehicleInformation: [],
 	evaDrillDownInformation: [],
+	showModal: false,
 };
 
 const getters = {
 	evaCountData: state => state.evaCountData,
 	vehicleInformation: state => state.vehicleInformation,
 	evaDrillDownInformation: state => state.evaDrillDownInformation,
+	showModal: state => state.showModal,
 };
 
 const actions = {
@@ -50,8 +52,12 @@ const actions = {
 			.then((res) => {
 				commit('setEvaDrillDownInformation', res.data);
 			})
-
 	},
+
+	changeShowModalDrillDown: ({ commit }) => {
+		console.log('SHOW');
+		commit('setShowModal', true)
+	}
 
 };
 
@@ -68,6 +74,10 @@ const mutations = {
 	setEvaDrillDownInformation(state, data) {
 		state.evaDrillDownInformation = data
 	},
+
+	setShowModal(state, data) {
+		state.showModal = data
+	}
 
 };
 
