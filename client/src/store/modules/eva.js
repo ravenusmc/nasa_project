@@ -9,6 +9,7 @@ const state = {
 	vehicleInformation: [],
 	evaDrillDownInformation: [],
 	showModal: false,
+	showChart: true, 
 };
 
 const getters = {
@@ -16,6 +17,7 @@ const getters = {
 	vehicleInformation: state => state.vehicleInformation,
 	evaDrillDownInformation: state => state.evaDrillDownInformation,
 	showModal: state => state.showModal,
+	showChart: state => state.showChart,
 };
 
 const actions = {
@@ -54,10 +56,18 @@ const actions = {
 			})
 	},
 
-	changeShowModalDrillDown: ({ commit }) => {
-		console.log('SHOW');
-		commit('setShowModal', true)
-	}
+	changeChartOrDrillDown: ({ dispatch }, { chartPayload } ) => {
+		dispatch('changeShowModalDrillDown', { chartPayload })
+		dispatch('ShowChart', { chartPayload })
+	},
+
+	changeShowModalDrillDown: ({ commit }, { chartPayload }) => {
+		commit('setShowModal', chartPayload.drilldown)
+	},
+
+	ShowChart: ({ commit }, { chartPayload }) => {
+		commit('setShowChart', chartPayload.chart)
+	},
 
 };
 
@@ -77,6 +87,10 @@ const mutations = {
 
 	setShowModal(state, data) {
 		state.showModal = data
+	},
+
+	setShowChart(state, data) {
+		state.showChart = data
 	}
 
 };

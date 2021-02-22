@@ -16,7 +16,7 @@
 
 <script>
 import moment from 'moment'
-import { mapActions } from 'vuex';
+import { mapActions,  mapGetters } from 'vuex';
 import Modal from '@/components/charts/Modal.vue';
 
 export default {
@@ -25,10 +25,13 @@ export default {
   components: {
     Modal,
   },
+  computed: {
+    ...mapGetters("eva", ["showChart"]),
+  },
   data(){
     return {
       Table: 'Table',
-      showChart: true,
+      // showChart: true,
       modalTitle: 'Drill Down Data for ',
       chartOptionsDrillDown: {
           title: 'Sentiment During World War 1',
@@ -49,15 +52,16 @@ export default {
           // console.log(startOfYear)
           let startOfYear = moment(date); 
           let endOfYear = startOfYear.clone().add(11, 'month').add(30, 'days'); 
-          // console.log(startOfYear.format("M/DD/YYYY"))
-          // console.log(endOfYear.format("M/DD/YYYY"))
           const payload = {
             yearOne: startOfYear.format("M/DD/YYYY"),
             yearTwo: endOfYear.format("M/DD/YYYY")
           };
+          const chartPayload = {
+            drilldown: true, 
+            chart: false, 
+          };
           this.fetchEVADrillDownData({ payload })
-          this.changeShowModalDrillDown()
-          this.showChart = false
+          this.changeChartOrDrillDown({ chartPayload })
         }
       }, // End Chart Events
     }
@@ -65,11 +69,8 @@ export default {
   methods: {
     ...mapActions("eva", [
       'fetchEVADrillDownData',
-      'changeShowModalDrillDown'
+      'changeChartOrDrillDown',
     ]),
-    // ...mapMutations("eva", [
-    //   'setShowModal',
-    // ]),
   }, // End of methods 
 };
 </script>
