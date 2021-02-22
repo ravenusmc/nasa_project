@@ -7,58 +7,23 @@
         class="close"
         aria-label="Close"
       >
-        <span aria-hidden="true">&times;</span>
+      <span aria-hidden="true">&times;</span>
       </button>
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Country</th>
+            <th scope="col">Crew</th>
+            <th scope="col">Vehicle</th>
+            <th scope="col">Duration</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+          <tr v-for="d of this.evaDrillDownInformation" v-bind:key="d.index">
+            <td>{{ d.Country }}</td>
+            <td>{{ d.Crew }}</td>
+            <td>{{ d.Vehicle }}</td>
+            <td>{{ d.Duration }}</td>
           </tr>
         </tbody>
       </table>
@@ -73,7 +38,10 @@ export default {
   name: "Modal",
 	// props: ["showModal", "modalTitle"],
 	computed: {
-    ...mapGetters("eva", ["showModal"]),
+    ...mapGetters("eva", [
+      "showModal",
+      "evaDrillDownInformation",
+      ]),
   },
   methods: {
     ...mapActions("eva", [

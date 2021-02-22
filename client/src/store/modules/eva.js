@@ -63,9 +63,11 @@ const actions = {
 
 	changeShowModalDrillDown: ({ commit }, { chartPayload }) => {
 		commit('setShowModal', chartPayload.drilldown)
+
 	},
 
 	ShowChart: ({ commit }, { chartPayload }) => {
+		commit('setEvaDrillDownInformation', [])
 		commit('setShowChart', chartPayload.chart)
 	},
 
