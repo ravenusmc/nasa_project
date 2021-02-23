@@ -60,11 +60,12 @@ export default {
 
 <style scoped>
 section {
-  height: 500px;
+  height: auto;
   border: 2px solid black;
   margin-top: 30px;
   margin-bottom: 30px;
   margin-left: 5%;
   margin-right: 5%;
 }
+
 </style>

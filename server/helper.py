@@ -95,3 +95,17 @@ class Helper():
 			index += 1
 			vehicle_eva_list.append(vehicle_eva_dictionary)
 		return vehicle_eva_list
+	
+	def build_years_data_set_drill_down(self, years_data_set):
+		years_eva_list = []
+		index = 0
+		for index, row in years_data_set.iterrows():
+			years_eva_dictionary = {}
+			years_eva_dictionary['Index'] = index
+			years_eva_dictionary['Country'] = row['Country']
+			years_eva_dictionary['Crew'] = row['Crew']
+			years_eva_dictionary['Vehicle'] = row['Vehicle']
+			years_eva_dictionary['Duration'] = row['Duration']
+			index += 1
+			years_eva_list.append(years_eva_dictionary)
+		return years_eva_list

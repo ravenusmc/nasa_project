@@ -1,15 +1,17 @@
 <template>
 <div>
 
-  <Modal />
-    <!-- :showModal="showModal" -->
-  <GChart
-    v-if="showChart"
-    :type="typeOne"
-    :data="data"
-    :options="options"
-    :events="chartEvents"
-    ref="gChart"/>
+  <section>
+    <Modal />
+      <!-- :showModal="showModal" -->
+    <GChart
+      v-if="showChart"
+      :type="typeOne"
+      :data="data"
+      :options="options"
+      :events="chartEvents"
+      ref="gChart"/>
+  </section>
 
 </div>
 </template>
@@ -74,3 +76,11 @@ export default {
   }, // End of methods 
 };
 </script>
+
+<style scoped>
+
+section {
+  height: auto;
+}
+
+</style>

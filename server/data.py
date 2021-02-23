@@ -31,7 +31,7 @@ class Data():
 		
 		def eva_drilldown_information(self, post_data):
 			years_data_set = self.helper_object.get_eva_data_for_years(self.eva_data, post_data)
-			return self.helper_object.build_years_data_set(years_data_set)
+			return self.helper_object.build_years_data_set_drill_down(years_data_set)
 
 
 # obj = Data()
