@@ -4,6 +4,7 @@
 import numpy as np
 import pandas as pd
 import datetime
+import math
 
 #importing file I built
 from web import * 
@@ -96,6 +97,8 @@ class Helper():
 			vehicle_eva_list.append(vehicle_eva_dictionary)
 		return vehicle_eva_list
 	
+	# This method is almost identical to the build_years_data_set expect it's not getting wikipedia information.
+	# Thus I decided to create a new method which radically sped up getting the drill down information.
 	def build_years_data_set_drill_down(self, years_data_set):
 		years_eva_list = []
 		index = 0
@@ -104,8 +107,17 @@ class Helper():
 			years_eva_dictionary['Index'] = index
 			years_eva_dictionary['Country'] = row['Country']
 			years_eva_dictionary['Crew'] = row['Crew']
-			years_eva_dictionary['Vehicle'] = row['Vehicle']
-			years_eva_dictionary['Duration'] = row['Duration']
+			if isinstance(row['Vehicle'], float) and math.isnan(row['Vehicle']):
+				years_eva_dictionary['Vehicle'] = 'No Data'
+			else:
+				years_eva_dictionary['Vehicle'] = row['Vehicle']
+			if isinstance(row['Duration'], float) and math.isnan(row['Duration']):
+				years_eva_dictionary['Duration'] = 'No Data'
+			elif (isinstance(row['Duration'], str) and (len(row['Duration']) > 5)):
+				years_eva_dictionary['Duration'] = 'No Data'
+			else:
+				years_eva_dictionary['Duration'] = row['Duration']
+			print(len(years_eva_dictionary['Duration']))
 			index += 1
 			years_eva_list.append(years_eva_dictionary)
 		return years_eva_list
