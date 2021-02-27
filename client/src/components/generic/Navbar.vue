@@ -8,31 +8,31 @@
             Home
           </router-link>
         </a>
-        <a class="myButton">
-          <router-link class="fontColor font" to="/people">
+        <router-link class="fontColor font" to="/people">
+          <a class="myButton">
             People in Space
-          </router-link>
-        </a>
-        <a class="myButton">
-          <router-link class="fontColor font" to="/picture">
+          </a>
+        </router-link>
+        <router-link class="fontColor font" to="/picture">
+          <a class="myButton">
             Picture of the Day
-          </router-link>
-        </a>
-        <a class="myButton">
-          <router-link class="fontColor font" to="/mars">
+          </a>
+        </router-link>
+        <router-link class="fontColor font" to="/mars">
+          <a class="myButton">
             Mars
-          </router-link>
-        </a>
-        <a class="myButton">
-          <router-link class="fontColor font" to="/eva">
+          </a>
+        </router-link>
+        <router-link class="fontColor font" to="/eva">
+          <a class="myButton">
             EVA
-          </router-link>
-        </a>
-        <a class="myButton">
-          <router-link class="fontColor font" to="/about">
+          </a>
+        </router-link>
+        <router-link class="fontColor font" to="/about">
+          <a class="myButton">
             About
-          </router-link>
-        </a>
+          </a>
+        </router-link>
       </div>
 
     </section>
@@ -55,7 +55,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 45vh;
+  margin-top: 12vh;
+  position: fixed;
 }
 
 .fontColor {

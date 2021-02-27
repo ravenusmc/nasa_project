@@ -38,7 +38,7 @@ main {
 }
 
 /* Media Queries */ 
-@media only all and (max-width: 900px) {
+@media only all and (max-width: 1250px) {
 
   main {
     grid-template-columns: 1fr;
