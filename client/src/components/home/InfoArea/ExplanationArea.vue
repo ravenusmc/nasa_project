@@ -23,7 +23,11 @@
 				</div>
 
 				<div>
-					This page will show the user the astronauts who are in space. 
+					<p>
+						This page will show the user the 'selected' NASA picture of the day. The picture of the day 
+						can be anything from an image of a galaxy, sunset, to a star to even soem videos. It's always 
+						exciting, each day, to see what NASA selected. 
+					</p>
 				</div>
 
 			</div>
@@ -35,7 +39,10 @@
 				</div>
 
 				<div>
-					This page will show the user the astronauts who are in space. 
+					<p>
+						This page will show the user to select different camera on a Mars Rover to see different 
+						terrain on the planet.  
+					</p>
 				</div>
 
 			</div>
@@ -47,7 +54,9 @@
 				</div>
 
 				<div>
-					This page will show the user the astronauts who are in space. 
+					<p>
+						This page will show the user the astronauts who are in space.
+					</p> 
 				</div>
 
 			</div>
