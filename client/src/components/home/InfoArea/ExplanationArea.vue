@@ -11,7 +11,9 @@
 				</div>
 
 				<div>
-					This page will show the user the astronauts who are in space. 
+					This page will show the user the astronauts who are in space. I do have to admit that I got the 
+					API link from Team Treehouse on one of their projects. I don't believe that the API is updated to 
+					the current people in space. 
 				</div>
 
 			</div>
@@ -40,8 +42,9 @@
 
 				<div>
 					<p>
-						This page will show the user to select different camera on a Mars Rover to see different 
-						terrain on the planet.  
+						This page will show the user to select different cameras on a Mars Rover to see different 
+						terrain on the planet. The user can also select different Mar's days to see how the pictures 
+						change over time. 
 					</p>
 				</div>
 
@@ -55,7 +58,10 @@
 
 				<div>
 					<p>
-						This page will show the user the astronauts who are in space.
+						This page will show the user the astronauts who have conducted space walks out into space. The 
+						page starts out with a graph of the eva's per year. If one clicks on the graph there is a drill down 
+						to show the exact EVA's that took place. The user can also select a spacecraft or set of years 
+						to see information on EVA's. 
 					</p> 
 				</div>
 
