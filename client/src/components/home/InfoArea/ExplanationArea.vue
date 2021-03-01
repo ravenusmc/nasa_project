@@ -7,7 +7,7 @@
 			<div class='explanation-div'>
 
 				<div>
-					<h3 class='font'>People in Space</h3>
+					<h3 class='font center-title'>People in Space</h3>
 				</div>
 
 				<div>
@@ -21,7 +21,7 @@
 			<div class='explanation-div'>
 
 				<div>
-					<h3 class='font'>Picture of the Day</h3>
+					<h3 class='font center-title'>Picture of the Day</h3>
 				</div>
 
 				<div>
@@ -37,7 +37,7 @@
 			<div class='explanation-div'>
 
 				<div>
-					<h3 class='font'>Mars</h3>
+					<h3 class='font center-title'>Mars</h3>
 				</div>
 
 				<div>
@@ -53,7 +53,7 @@
 			<div class='explanation-div'>
 
 				<div>
-					<h3 class='font'>EVA</h3>
+					<h3 class='font center-title'>EVA</h3>
 				</div>
 
 				<div>
@@ -82,10 +82,18 @@ export default {
 
 .explanation-div {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	margin-top: 30px;
 	margin-left: 30px;
 	margin-right: 30px;
+}
+
+@media only all and (max-width: 1250px) {
+
+  .center-title {
+		text-align: center;
+  }
+
 }
 
 </style>

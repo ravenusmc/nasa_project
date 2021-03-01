@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section class="font" v-if="!noDataMessage">
+    <section v-if="!noDataMessage">
       <div class="picture-page-title">
-        <h2 class="center">Picture of the Day</h2>
+        <h2 class="center font">Picture of the Day</h2>
         <p class="center">Date: {{ this.pictureData.date }}</p>
       </div>
 
@@ -23,7 +23,7 @@
     </section>
 
 		<div class='no-data-message' v-if="noDataMessage">
-			<h1 class='center font'>No Data</h1>
+			<h1 class='center'>No Data</h1>
 		</div>
 
   </div>

@@ -7,9 +7,9 @@
 					<div class='image-div'>
 						<img :src="d.img" alt="astronaut Image">
 					</div>
-					<h5 class='center font'><span>Name:</span> {{ d.name }}</h5>
-					<p class='center font'><span>Description:</span> {{ d.description }}</p>
-					<p class='center font'><span>Information:</span> {{d.info }}</p>
+					<h5 class='center'><span>Name:</span> {{ d.name }}</h5>
+					<p class='center'><span>Description:</span> {{ d.description }}</p>
+					<p class='center'><span>Information:</span> {{d.info }}</p>
 				</div>
 			</div>
 		</section>
