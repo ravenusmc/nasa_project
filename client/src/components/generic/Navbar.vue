@@ -28,6 +28,11 @@
             EVA
           </a>
         </router-link>
+        <router-link class="fontColor font" to="/missions">
+          <a class="myButton">
+            Missions
+          </a>
+        </router-link>
         <router-link class="fontColor font" to="/about">
           <a class="myButton">
             About

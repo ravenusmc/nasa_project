@@ -7,7 +7,7 @@
       </div>
 
       <div>
-        <h4 class="center">Title: {{ this.pictureData.title }}</h4>
+        <h4 class="center title-area">Title: {{ this.pictureData.title }}</h4>
         <div class="picture-div">
           <img v-if="noImage" :src="pictureData.hdurl" :alt="pictureData.title" />
           <iframe v-if="!noImage" width="700" height="700" :src="pictureData.url" ></iframe>
@@ -70,5 +70,22 @@ img {
 .no-data-message {
   margin-top: 150px;
   margin-bottom: 500px;
+}
+
+@media only all and (max-width: 1250px) {
+
+  .center-title {
+		text-align: center;
+  }
+
+  .title-area {
+    margin: 5%;
+  }
+
+  img {
+    height: 400px;
+    width: 400px;
+  }
+
 }
 </style>

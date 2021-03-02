@@ -18,7 +18,7 @@
         />
       </div>
 
-      <div class="bio_div font">
+      <div class="bio_div">
         <p>
           In the spring of 2015, I chose to take a leap in a new direction and
           immerse myself in learning full stack web development. I attended the
