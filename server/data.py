@@ -13,7 +13,10 @@ class Data():
 		def __init__(self):
 			self.helper_object = Helper()
 			self.eva_data = pd.read_csv('./data/eva.csv', error_bad_lines=False)
-			self.space_data = pd.read_csv('./data/Space_Corrected.csv', error_bad_lines=False)
+			self.mission_data = pd.read_csv('./data/Space_Corrected.csv', error_bad_lines=False)
+		
+		def experiment(self):
+			print(self.mission_data.head())
 	
 		def eva_count_by_year(self):
 			self.eva_data['Date'] = self.helper_object.convert_date_column_from_obj_to_date(self.eva_data)
@@ -34,9 +37,8 @@ class Data():
 			return self.helper_object.build_years_data_set_drill_down(years_data_set)
 
 
-# obj = Data()
-# obj.test_scrap()
-
+obj = Data()
+obj.experiment()
 
 
 # old code that may be need:

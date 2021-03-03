@@ -83,9 +83,7 @@ export default {
 .explanation-div {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	margin-top: 30px;
-	margin-left: 30px;
-	margin-right: 30px;
+	margin: 30px 85px 10px 85px;
 }
 
 @media only all and (max-width: 1250px) {
