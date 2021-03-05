@@ -19,7 +19,6 @@ class Data():
 			# print(self.mission_data.head())
 			print(list(pd.unique(self.mission_data['Company Name'])))
 
-	
 		def eva_count_by_year(self):
 			self.eva_data['Date'] = self.helper_object.convert_date_column_from_obj_to_date(self.eva_data)
 			eva_count = self.helper_object.get_eva_count_by_year(self.eva_data)
@@ -46,7 +45,7 @@ obj = Data()
 obj.experiment()
 
 
-# old code that may be need:
+# old code that may be needed:
 		# def test_scrap(self):
 		# 	print(list(pd.unique(self.eva_data['Vehicle'])))
 				# print(data_object.info())
