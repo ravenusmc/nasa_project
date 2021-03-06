@@ -17,6 +17,11 @@ class Helper():
 	def convert_date_column_from_obj_to_date(self, data_object):
 		return pd.to_datetime(data_object['Date'])
 	
+	# Yeah, I should have used in a parameter for the column name in the above method 
+	# so I would not need this second method - to lazy to add it now...maybe later.
+	def convert_date_comulm_from_obj_to_date_mission_data(self, data_object):
+		return pd.to_datetime(data_object['Datum'], utc=True)
+	
 	def get_eva_count_by_year(self, data_object):
 	 return data_object['Date'].groupby(data_object.Date.dt.year).agg('count').sort_index()
 
@@ -121,3 +126,14 @@ class Helper():
 			index += 1
 			years_eva_list.append(years_eva_dictionary)
 		return years_eva_list
+	
+	def get_min_year(self, mission_data):
+		return mission_data['Datum'].min()
+	
+	def get_max_year(self, mission_data):
+		return mission_data['Datum'].max()
+	
+	def missions_by_year(self, mission_data):
+		pass
+		# print(mission_data['Datum'].head())
+		# print(mission_data.head())

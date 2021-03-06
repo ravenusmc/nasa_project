@@ -16,8 +16,9 @@ class Data():
 			self.mission_data = pd.read_csv('./data/Space_Corrected.csv', error_bad_lines=False)
 		
 		def experiment(self):
+			pass
 			# print(self.mission_data.head())
-			print(list(pd.unique(self.mission_data['Company Name'])))
+			# print(list(pd.unique(self.mission_data['Company Name'])))
 
 		def eva_count_by_year(self):
 			self.eva_data['Date'] = self.helper_object.convert_date_column_from_obj_to_date(self.eva_data)
@@ -38,11 +39,15 @@ class Data():
 			return self.helper_object.build_years_data_set_drill_down(years_data_set)
 		
 		def missions_by_year(self):
-			pass 
+			self.mission_data['Datum'] = self.helper_object.convert_date_comulm_from_obj_to_date_mission_data(self.mission_data).astype('datetime64[ns]')
+			min_year = self.helper_object.get_min_year(self.mission_data)
+			max_year = self.helper_object.get_max_year(self.mission_data)
+
+			# self.helper_object.missions_by_year(self.mission_data)
 
 
 obj = Data()
-obj.experiment()
+obj.missions_by_year()
 
 
 # old code that may be needed:
