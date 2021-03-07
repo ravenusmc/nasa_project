@@ -123,7 +123,6 @@ class Helper():
 				years_eva_dictionary['Duration'] = 'No Data'
 			else:
 				years_eva_dictionary['Duration'] = row['Duration']
-			print(len(years_eva_dictionary['Duration']))
 			index += 1
 			years_eva_list.append(years_eva_dictionary)
 		return years_eva_list
@@ -135,14 +134,20 @@ class Helper():
 		return mission_data['Datum'].max()
 	
 	def missions_by_year(self, mission_data, min_year, max_year):
-		print(type(min_year))
+		missions_by_year = []
+		columns = ['Year', 'Mission Count']
+		missions_by_year.append(columns)
 		starting_year = min_year.year
-		# timestamp = datetime.datetime.fromtimestamp(starting_year)
 		ending_year = max_year.year
 		while starting_year <= ending_year:
-			print(starting_year)
-			data = mission_data[(mission_data['Datum'] == pd.to_datetime(starting_year))]
-			print(len(data))
-			input()
+			rows = []
+			missions_by_year_dictionary = {}
+			end_of_the_year = starting_year + 1
+			data = mission_data[(mission_data['Datum'] >= pd.to_datetime(str(starting_year))) & (mission_data['Datum'] < pd.to_datetime(str(end_of_the_year)))]
+			number_of_missions = len(data)
 			starting_year += 1 
+			rows.append(starting_year)
+			rows.append(number_of_missions)
+			missions_by_year.append(rows)
+
 
