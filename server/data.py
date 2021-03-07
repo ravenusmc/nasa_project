@@ -39,11 +39,10 @@ class Data():
 			return self.helper_object.build_years_data_set_drill_down(years_data_set)
 		
 		def missions_by_year(self):
-			self.mission_data['Datum'] = self.helper_object.convert_date_comulm_from_obj_to_date_mission_data(self.mission_data).astype('datetime64[ns]')
+			self.mission_data['Datum'] = self.helper_object.convert_date_comulm_from_obj_to_date_mission_data(self.mission_data)
 			min_year = self.helper_object.get_min_year(self.mission_data)
 			max_year = self.helper_object.get_max_year(self.mission_data)
-
-			# self.helper_object.missions_by_year(self.mission_data)
+			missions_by_year = self.helper_object.missions_by_year(self.mission_data, min_year, max_year)
 
 
 obj = Data()
