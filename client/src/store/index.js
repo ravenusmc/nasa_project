@@ -4,6 +4,7 @@ import mars from './modules/mars';
 import picture from './modules/picture';
 import people from './modules/people';
 import eva from './modules/eva';
+import mission from './modules/mission';
 
 Vue.use(Vuex)
 
@@ -13,5 +14,6 @@ export default new Vuex.Store({
     picture,
     people,
     eva,
+    mission,
   },
 })
