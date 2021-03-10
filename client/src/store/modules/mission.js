@@ -72,10 +72,12 @@ const state = {
 		[new Date(2020, 0, 1), 109], 
 		[new Date(2021, 0, 1), 63]
 	],
+	successFailuresMissionData: [],
 };
 
 const getters = {
 	missionData: state => state.missionData,
+	successFailuresMissionData: state => state.successFailuresMissionData,
 };
 
 // const actions = {
@@ -114,10 +116,9 @@ const getters = {
 
 const mutations = {
 
-	setMarsData(state, data) {
-		state.marsData = data
+	setSuccessFailuresMissionData (state, data) {
+		state.successFailuresMissionData = data
 	},
-
 
 };
 
