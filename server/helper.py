@@ -151,6 +151,6 @@ class Helper():
 			missions_by_year.append(rows)
 	
 	def success_failure_missions_by_year(self, mission_data, min_year, max_year):
-		
+		pass
 
 
