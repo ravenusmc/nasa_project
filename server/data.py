@@ -50,7 +50,6 @@ class Data():
 			max_year = self.helper_object.get_max_year(self.mission_data)
 			success_failure_missions_by_year = self.helper_object.missions_by_year(self.mission_data, min_year, max_year)
 
-
 obj = Data()
 obj.missions_by_year()
 
