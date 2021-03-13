@@ -48,10 +48,11 @@ class Data():
 			self.mission_data['Datum'] = self.helper_object.convert_date_comulm_from_obj_to_date_mission_data(self.mission_data)
 			min_year = self.helper_object.get_min_year(self.mission_data)
 			max_year = self.helper_object.get_max_year(self.mission_data)
-			success_failure_missions_by_year = self.helper_object.missions_by_year(self.mission_data, min_year, max_year)
+			success_failure_missions_by_year = self.helper_object.success_failure_missions_by_year(self.mission_data, min_year, max_year)
+			return success_failure_missions_by_year
 
-obj = Data()
-obj.missions_by_year()
+# obj = Data()
+# obj.missions_by_success_or_failure()
 
 
 # old code that may be needed:

@@ -151,6 +151,28 @@ class Helper():
 			missions_by_year.append(rows)
 	
 	def success_failure_missions_by_year(self, mission_data, min_year, max_year):
-		pass
+		missions_by_year = []
+		columns = ['Year', 'Total Missions', 'Successful Missions', 'Failed Missions']
+		missions_by_year.append(columns)
+		starting_year = min_year.year
+		ending_year = max_year.year
+		while starting_year <= ending_year:
+			rows = []
+			missions_by_year_dictionary = {}
+			end_of_the_year = starting_year + 1
+			data = mission_data[(mission_data['Datum'] >= pd.to_datetime(str(starting_year))) & (mission_data['Datum'] < pd.to_datetime(str(end_of_the_year)))]
+			success_missions = data[(data['Status Mission'] == 'Success')]
+			failed_missions = data[(data['Status Mission'] == 'Failure')]
+			number_of_missions = len(data)
+			number_successful_missions = len(success_missions)
+			number_failed_missions = len(failed_missions)
+			starting_year += 1 
+			rows.append(starting_year)
+			rows.append(number_of_missions)
+			rows.append(number_successful_missions)
+			rows.append(number_failed_missions)
+			missions_by_year.append(rows)
+		return missions_by_year
+
 
 
