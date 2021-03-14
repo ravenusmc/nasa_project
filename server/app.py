@@ -46,9 +46,9 @@ def route_EVA_vehicle_drilldown_data():
 @app.route('/getMissionBySuccessFailure', methods=['GET', 'POST'])
 def route_Mission_Success_Failure_data():
     if request.method == 'POST':
+        data_obj = Data()
         mission_success_failure_data = data_obj.missions_by_success_or_failure()
-        
-        return jsonify(eva_data_information)
+        return jsonify(mission_success_failure_data)
 
 # This route will get the data for the Missions page 
 
