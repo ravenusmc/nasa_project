@@ -1,8 +1,8 @@
 <template>
   <div>
     <main>
-      <AltNavbar class="navbar-alternate"/>
-      <Navbar class='navbar-original' />
+      <AltNavbar class="navbar-alternate" />
+      <Navbar class="navbar-original" />
       <InfoArea />
     </main>
     <Footer />
@@ -15,6 +15,7 @@ import Navbar from "@/components/generic/Navbar.vue";
 import AltNavbar from "@/components/generic/AltNavbar.vue";
 import InfoArea from "@/components/home/InfoArea.vue";
 import Footer from "@/components/generic/Footer.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "Home",
@@ -23,6 +24,13 @@ export default {
     AltNavbar,
     InfoArea,
     Footer,
+  },
+  methods: {
+    ...mapActions(
+      "mission", ["fetchMissionSuccessFailures"]),
+  },
+  mounted() {
+    this.fetchMissionSuccessFailures();
   },
 };
 </script>
@@ -37,9 +45,8 @@ main {
   display: none;
 }
 
-/* Media Queries */ 
+/* Media Queries */
 @media only all and (max-width: 1250px) {
-
   main {
     grid-template-columns: 1fr;
   }
@@ -51,6 +58,5 @@ main {
   .navbar-original {
     display: none;
   }
-
 }
 </style>

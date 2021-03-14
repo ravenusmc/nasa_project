@@ -2,10 +2,14 @@
 	<div>
 		<AltNavbar />
 		<GraphCard
-      class="graph-card"
 			:typeOne='typeOne'
 			:data='missionData'
 			:options='chartOptionsOne'>
+		</GraphCard>
+		<GraphCard
+			:typeOne='typeOne'
+			:data='successFailuresMissionData'
+			:options='chartOptionsTwo'>
 		</GraphCard>
 		<Footer />
 	</div>
@@ -26,11 +30,21 @@ export default {
 	},
 	data() {
     return {
-      typeOne: 'ColumnChart',
-      chartOptionsOne: {
-        title: 'Mission Count by Year',
+			typeOne: 'ColumnChart',
+			// typeTwo: 'BarChart',
+			chartOptionsOne: {
+        title: 'Missions Count by Year',
         legend: { position: 'top' },
         colors:['#BF0D3E'],
+        height: 600,
+        animation:{
+         duration: 1000,
+         easing: 'linear',
+       },
+      },
+      chartOptionsTwo: {
+        title: 'Missions By Success / Failure',
+        legend: { position: 'top' },
         height: 600,
         animation:{
          duration: 1000,
@@ -40,7 +54,7 @@ export default {
     }
 	},
 	computed: {
-    ...mapGetters("mission", ['missionData']),
+    ...mapGetters("mission", ['missionData', 'successFailuresMissionData']),
   }, // End Computed properties
 }
 </script>
