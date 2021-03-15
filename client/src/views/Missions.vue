@@ -6,6 +6,7 @@
 			:data='missionData'
 			:options='chartOptionsOne'>
 		</GraphCard>
+		<SuccessForm />
 		<GraphCard
 			:typeOne='typeOne'
 			:data='successFailuresMissionData'
@@ -18,6 +19,7 @@
 <script>
 import AltNavbar from "@/components/generic/AltNavbar.vue";
 import GraphCard from '@/components/charts/GraphCard.vue';
+import SuccessForm from '@/components/missions/SuccessForm.vue';
 import Footer from "@/components/generic/Footer.vue";
 import { mapGetters } from 'vuex';
 
@@ -26,6 +28,7 @@ export default {
 	components: {
 		AltNavbar,
 		GraphCard,
+		SuccessForm,
     Footer,
 	},
 	data() {
@@ -58,7 +61,3 @@ export default {
   }, // End Computed properties
 }
 </script>
-
-<style scoped>
-
-</style>
