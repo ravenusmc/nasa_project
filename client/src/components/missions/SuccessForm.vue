@@ -75,26 +75,23 @@ export default {
     // ...mapActions([ "eva/fetchVehicleInformation"]),
     submitSelection(evt) {
       evt.preventDefault();
-      console.log(this.dataType);
-      // if (this.yearOne < 1963){
-      //   alert('The first year must be greater than 1962!')
-      // }else if (this.yearTwo > 2013){
-      //   alert('The second year must not be greater than 2013!')
-      // }else if (this.yearOne >= this.yearTwo){
-      //   alert('The first year must be less than the second year!')
-      // }else if (this.yearTwo <= this.yearOne){
-      //   alert('The second year must be greater than the first year!')
-      // }else if ( ((this.yearTwo - this.yearOne) > 5) && this.years) {
-      // 	alert('Plesae do NOT Search for more than a five year time span!')
-      // }else {
-      // 	const payload = {
-      // 		vehicle: this.vehicle,
-      // 		yearOne: this.yearOne,
-      // 		yearTwo: this.yearTwo,
-      // 		useYears: this.years
-      // 	};
+      if (this.yearOne < 1958){
+        alert('The first year must be at least 1958!')
+			}else if (this.yearTwo > 2020){
+				alert('The second year must not be greater than 2020!')
+			}else if (this.yearOne >= this.yearTwo){
+				alert('The first year must be less than the second year!')
+			}else if (this.yearTwo <= this.yearOne){
+				alert('The second year must be greater than the first year!')
+			}else {
+				console.log('HI')
+				// const payload = {
+				// 	yearOne: this.yearOne,
+				// 	yearTwo: this.yearTwo,
+				// 	dataType: this.dataType
+				// }
       // 	this.$store.dispatch('eva/fetchVehicleInformation', { payload })
-      // }
+      }
     },
   },
 };

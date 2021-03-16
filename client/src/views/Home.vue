@@ -30,7 +30,12 @@ export default {
       "mission", ["fetchMissionSuccessFailures"]),
   },
   mounted() {
-    this.fetchMissionSuccessFailures();
+    const payload = {
+      yearOne: 1958,
+      yearTwo: 2020,
+      dataType: 'All'
+    };
+    this.$store.dispatch('mission/fetchMissionSuccessFailures', { payload })
   },
 };
 </script>

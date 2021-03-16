@@ -82,9 +82,9 @@ const getters = {
 
 const actions = {
 
-	fetchMissionSuccessFailures: ({ commit }) => {
+	fetchMissionSuccessFailures: ({ commit }, { payload }) => {
 		const path = 'http://localhost:5000/getMissionBySuccessFailure';
-		axios.post(path)
+		axios.post(path, payload)
 			.then((res) => {
 				for (let i = 1; i < res.data.length; i++) {
 					let date = new Date(res.data[i][0], 0, 1)

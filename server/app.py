@@ -47,6 +47,8 @@ def route_EVA_vehicle_drilldown_data():
 def route_Mission_Success_Failure_data():
     if request.method == 'POST':
         data_obj = Data()
+        post_data = request.get_json()
+        print(post_data)
         mission_success_failure_data = data_obj.missions_by_success_or_failure()
         return jsonify(mission_success_failure_data)
 
