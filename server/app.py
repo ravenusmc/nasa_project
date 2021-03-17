@@ -48,12 +48,8 @@ def route_Mission_Success_Failure_data():
     if request.method == 'POST':
         data_obj = Data()
         post_data = request.get_json()
-        print(post_data)
-        mission_success_failure_data = data_obj.missions_by_success_or_failure()
+        mission_success_failure_data = data_obj.missions_by_success_or_failure(post_data)
         return jsonify(mission_success_failure_data)
-
-# This route will get the data for the Missions page 
-
 
 if __name__ == '__main__':
     app.run()

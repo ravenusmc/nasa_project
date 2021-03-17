@@ -62,6 +62,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "SuccessForm",
   data() {
@@ -72,7 +74,9 @@ export default {
     };
   },
   methods: {
-    // ...mapActions([ "eva/fetchVehicleInformation"]),
+    ...mapActions("mission", [
+      'fetchMissionSuccessFailures',
+    ]),
     submitSelection(evt) {
       evt.preventDefault();
       if (this.yearOne < 1958){
@@ -84,13 +88,12 @@ export default {
 			}else if (this.yearTwo <= this.yearOne){
 				alert('The second year must be greater than the first year!')
 			}else {
-				console.log('HI')
-				// const payload = {
-				// 	yearOne: this.yearOne,
-				// 	yearTwo: this.yearTwo,
-				// 	dataType: this.dataType
-				// }
-      // 	this.$store.dispatch('eva/fetchVehicleInformation', { payload })
+				const payload = {
+					yearOne: this.yearOne,
+					yearTwo: this.yearTwo,
+					dataType: this.dataType
+        }
+        this.fetchMissionSuccessFailures({ payload })
       }
     },
   },

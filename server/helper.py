@@ -150,12 +150,17 @@ class Helper():
 			rows.append(number_of_missions)
 			missions_by_year.append(rows)
 	
-	def success_failure_missions_by_year(self, mission_data, min_year, max_year):
+	def success_failure_missions_by_year(self, mission_data, post_data, min_year, max_year):
 		missions_by_year = []
-		columns = ['Year', 'Total Missions', 'Successful Missions', 'Failed Missions']
+		if post_data['dataType'] == 'All':
+			columns = ['Year', 'Total Missions', 'Successful Missions', 'Failed Missions']
+		elif post_data['dataType'] == 'Success':
+			columns = ['Year', 'Total Missions', 'Successful Missions']
+		else:
+			columns = ['Year', 'Total Missions', 'Failed Missions']
 		missions_by_year.append(columns)
-		starting_year = min_year.year
-		ending_year = max_year.year
+		starting_year = int(min_year)
+		ending_year = int(max_year)
 		while starting_year <= ending_year:
 			rows = []
 			missions_by_year_dictionary = {}
@@ -168,9 +173,16 @@ class Helper():
 			number_failed_missions = len(failed_missions)
 			starting_year += 1 
 			rows.append(starting_year)
-			rows.append(number_of_missions)
-			rows.append(number_successful_missions)
-			rows.append(number_failed_missions)
+			if post_data['dataType'] == 'All':	
+				rows.append(number_of_missions)
+				rows.append(number_successful_missions)
+				rows.append(number_failed_missions)
+			elif post_data['dataType'] == 'Success':
+				rows.append(number_of_missions)
+				rows.append(number_successful_missions)
+			else:
+				rows.append(number_of_missions)
+				rows.append(number_failed_missions)
 			missions_by_year.append(rows)
 		return missions_by_year
 
