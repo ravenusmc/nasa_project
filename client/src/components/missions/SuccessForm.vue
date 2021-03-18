@@ -18,6 +18,15 @@
           </div>
         </div>
 
+<div class="form-group">
+<input type="text" list="vehicles" v-model="company" placeholder="Search For Ship" />
+<datalist id="vehicles">
+<option v-for="vehicle in vehicles" v-bind:key="vehicle">
+{{ vehicle }}
+</option>
+</datalist>
+</div>
+
         <div class="form-group year-area">
           <div>
             <label>Year One:</label>
@@ -71,6 +80,13 @@ export default {
       dataType: "All",
       yearOne: 1958,
       yearTwo: 2020,
+      company: "",
+      companies: ['SpaceX', 'CASC', 'Roscosmos', 'ULA', 'JAXA', 'Northrop', 'ExPace', 'IAI', 'Rocket Lab', 'Virgin Orbit', 'VKS RF', 
+      'MHI', 'IRGC', 'Arianespace', 'ISA', 'Blue Origin', 'ISRO', 'Exos', 'ILS', 'i-Space', 'OneSpace', 'Landspace', 
+      'Eurockot', 'Land Launch', 'CASIC', 'KCST', 'Sandia', 'Kosmotras', 'Khrunichev', 'Sea Launch', 'KARI', 'ESA', 
+      'NASA', 'Boeing', 'ISAS', 'SRC', 'MITT', 'Lockheed', 'AEB', 'Starsem', 'RVSN USSR', 'EER', 'General Dynamics', 
+      'Martin Marietta', 'Yuzhmash', 'Douglas', 'ASI', 'US Air Force', 'CNES', 'CECLES', 'RAE', 'UT', 'OKB-586', 'AMBA', 
+      "Arm??e de l'Air", 'US Navy']
     };
   },
   methods: {

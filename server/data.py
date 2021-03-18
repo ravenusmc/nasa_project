@@ -16,9 +16,8 @@ class Data():
 			self.mission_data = pd.read_csv('./data/Space_Corrected.csv', error_bad_lines=False)
 		
 		def experiment(self):
-			pass
 			# print(self.mission_data.head())
-			# print(list(pd.unique(self.mission_data['Company Name'])))
+			print(list(pd.unique(self.mission_data['Company Name'])))
 
 		def eva_count_by_year(self):
 			self.eva_data['Date'] = self.helper_object.convert_date_column_from_obj_to_date(self.eva_data)
@@ -51,11 +50,19 @@ class Data():
 			success_failure_missions_by_year = self.helper_object.success_failure_missions_by_year(self.mission_data, post_data, min_year, max_year)
 			return success_failure_missions_by_year
 
-# obj = Data()
-# obj.missions_by_success_or_failure()
-
+obj = Data()
+obj.experiment()
 
 # old code that may be needed:
 		# def test_scrap(self):
 		# 	print(list(pd.unique(self.eva_data['Vehicle'])))
 				# print(data_object.info())
+
+
+# Unique companies
+['SpaceX', 'CASC', 'Roscosmos', 'ULA', 'JAXA', 'Northrop', 'ExPace', 'IAI', 'Rocket Lab', 'Virgin Orbit', 'VKS RF', 
+'MHI', 'IRGC', 'Arianespace', 'ISA', 'Blue Origin', 'ISRO', 'Exos', 'ILS', 'i-Space', 'OneSpace', 'Landspace', 
+'Eurockot', 'Land Launch', 'CASIC', 'KCST', 'Sandia', 'Kosmotras', 'Khrunichev', 'Sea Launch', 'KARI', 'ESA', 
+'NASA', 'Boeing', 'ISAS', 'SRC', 'MITT', 'Lockheed', 'AEB', 'Starsem', 'RVSN USSR', 'EER', 'General Dynamics', 
+'Martin Marietta', 'Yuzhmash', 'Douglas', 'ASI', 'US Air Force', 'CNES', 'CECLES', 'RAE', 'UT', 'OKB-586', 'AMBA', 
+"Arm??e de l'Air", 'US Navy']
