@@ -18,15 +18,6 @@
           </div>
         </div>
 
-<div class="form-group">
-<input type="text" list="vehicles" v-model="company" placeholder="Search For Ship" />
-<datalist id="vehicles">
-<option v-for="vehicle in vehicles" v-bind:key="vehicle">
-{{ vehicle }}
-</option>
-</datalist>
-</div>
-
         <div class="form-group year-area">
           <div>
             <label>Year One:</label>
@@ -48,6 +39,15 @@
               placeholder="Enter Second Year"
             />
           </div>
+        </div>
+
+        <div class="form-group company-area">
+          <input type="text" list="companies" v-model="company" placeholder="Search For Company" />
+            <datalist id="companies">
+              <option v-for="company in companies" v-bind:key="company">
+                {{ company }}
+              </option>
+            </datalist>
         </div>
 
 				<div class='button-div'>
@@ -138,6 +138,14 @@ form {
 	flex-direction: column;
 	justify-content: center;
 	margin: 3%;
+}
+
+.company-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3%;
 }
 
 .button-div {
