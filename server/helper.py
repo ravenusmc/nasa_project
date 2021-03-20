@@ -161,6 +161,9 @@ class Helper():
 		missions_by_year.append(columns)
 		starting_year = int(min_year)
 		ending_year = int(max_year)
+		print(post_data['company'])
+		if post_data['company'] != '':
+			mission_data = mission_data[(mission_data['Company Name'] == post_data['company'])]
 		while starting_year <= ending_year:
 			rows = []
 			missions_by_year_dictionary = {}

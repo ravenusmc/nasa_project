@@ -6,6 +6,7 @@
 			:data='missionData'
 			:options='chartOptionsOne'>
 		</GraphCard>
+		<hr>
 		<SuccessForm />
 		<GraphCard
 			:typeOne='typeOne'

@@ -4,17 +4,17 @@
 
       <form @submit="submitSelection">
         <div class="custom-control radio-button">
-          <div>
+          <div class='individual-radio-button'>
             <input type="radio" value="All" v-model="dataType" />
-            <label for="a">All Data</label>
+            <label class='radio-button-label' for="a">All Data</label>
           </div>
-          <div>
+          <div class='individual-radio-button'>
             <input type="radio" value="Success" v-model="dataType" />
-            <label for="b">Success</label>
+            <label class='radio-button-label' for="b">Success</label>
           </div>
-          <div>
+          <div class='individual-radio-button'>
             <input type="radio" value="Failure" v-model="dataType" />
-            <label for="c">Failures</label>
+            <label class='radio-button-label' for="c">Failures</label>
           </div>
         </div>
 
@@ -41,24 +41,26 @@
           </div>
         </div>
 
-        <div class="form-group company-area">
-          <input type="text" list="companies" v-model="company" placeholder="Search For Company" />
-            <datalist id="companies">
-              <option v-for="company in companies" v-bind:key="company">
-                {{ company }}
-              </option>
-            </datalist>
-        </div>
+        <div class='company-button-area'>
+          <div class="form-group company-area">
+            <input type="text" list="companies" v-model="company" placeholder="Company (Optional)" />
+              <datalist id="companies">
+                <option v-for="company in companies" v-bind:key="company">
+                  {{ company }}
+                </option>
+              </datalist>
+          </div>
 
-				<div class='button-div'>
-					<button type="submit" class="btn btn-outline-primary">
-						Submit
-					</button>
-				</div>
+          <div class='button-div'>
+            <button type="submit" class="btn btn-outline-primary">
+              Submit
+            </button>
+          </div>
+      </div>
 
       </form>
 
-      <div>
+      <div class='paragraph-div'>
         <p>
           This 'control panel' allows the user to focus on on missions that were
           success's, failures as well as to select a time frame. I realized that
@@ -107,7 +109,8 @@ export default {
 				const payload = {
 					yearOne: this.yearOne,
 					yearTwo: this.yearTwo,
-					dataType: this.dataType
+          dataType: this.dataType,
+          company: this.company,
         }
         this.fetchMissionSuccessFailures({ payload })
       }
@@ -119,7 +122,7 @@ export default {
 <style scoped>
 section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
 	margin: 5%;
 }
 
@@ -129,8 +132,19 @@ form {
 	justify-content: center;
 }
 
+.individual-radio-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+
 .radio-button {
   margin: 10px;
+}
+
+.radio-button-label {
+  margin-left: 5px;
 }
 
 .year-area {
@@ -138,6 +152,13 @@ form {
 	flex-direction: column;
 	justify-content: center;
 	margin: 3%;
+}
+
+.company-button-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .company-area {
@@ -151,5 +172,12 @@ form {
 .button-div {
 	display: flex;
 	align-items: center;
+}
+
+.paragraph-div {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>
