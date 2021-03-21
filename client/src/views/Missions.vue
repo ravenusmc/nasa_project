@@ -13,6 +13,7 @@
 			:data='successFailuresMissionData'
 			:options='chartOptionsTwo'>
 		</GraphCard>
+		<hr>
 		<Footer />
 	</div>
 </template>

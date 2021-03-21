@@ -62,10 +62,12 @@
 
       <div class='paragraph-div'>
         <p>
-          This 'control panel' allows the user to focus on on missions that were
-          success's, failures as well as to select a time frame. I realized that
+          This 'control panel' allows the user to focus on missions that were
+          a success, a failure in between a selected time frame. I realized that
           the graph below was to cluttered when all of the data was present so I
-          decided to give the user an opportunity to change their selection.
+          decided to give the user an opportunity to change their selection. Finally,
+          one also has the option to select a company, such as SpaceX,
+          to see how they are doing over time.  
         </p>
       </div>
     </section>

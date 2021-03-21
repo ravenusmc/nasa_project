@@ -49,9 +49,16 @@ class Data():
 			max_year = post_data['yearTwo']
 			success_failure_missions_by_year = self.helper_object.success_failure_missions_by_year(self.mission_data, post_data, min_year, max_year)
 			return success_failure_missions_by_year
+		
+		def missions_by_location(self):
+			test = "This is Amherst, NH"
+			value = test.rsplit(' ', 1)
+			print(value)
 
-# obj = Data()
-# obj.experiment()
+obj = Data()
+obj.missions_by_location()
+
+
 
 # old code that may be needed:
 		# def test_scrap(self):
