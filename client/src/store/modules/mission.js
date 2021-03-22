@@ -73,17 +73,34 @@ const state = {
 		[new Date(2021, 0, 1), 63]
 	],
 	successFailuresMissionData: [],
+	missionLocationsData: [],
 };
 
 const getters = {
 	missionData: state => state.missionData,
 	successFailuresMissionData: state => state.successFailuresMissionData,
+	missionLocationsData: state => state.missionLocationsData,
 };
 
 const actions = {
 
 	fetchMissionSuccessFailures: ({ commit }, { payload }) => {
 		const path = 'http://localhost:5000/getMissionBySuccessFailure';
+		axios.post(path, payload)
+			.then((res) => {
+				for (let i = 1; i < res.data.length; i++) {
+					let date = new Date(res.data[i][0], 0, 1)
+					res.data[i][0] = date
+				}
+				commit('setSuccessFailuresMissionData', res.data);
+			})
+			.catch(error => {
+				console.log(error);
+			})
+	},
+
+	fetchMissionLocations: ({ commit }, { payload }) => {
+		const path = 'http://localhost:5000/getMissionByLocation';
 		axios.post(path, payload)
 			.then((res) => {
 				for (let i = 1; i < res.data.length; i++) {
@@ -104,6 +121,10 @@ const mutations = {
 	setSuccessFailuresMissionData(state, data) {
 		state.successFailuresMissionData = data
 	},
+
+	setMissionLocationsData(state, data) {
+		state.missionLocationsData = data
+	},	
 
 };
 

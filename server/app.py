@@ -51,5 +51,16 @@ def route_Mission_Success_Failure_data():
         mission_success_failure_data = data_obj.missions_by_success_or_failure(post_data)
         return jsonify(mission_success_failure_data)
 
+# This route will get the data for the missions by location
+@app.route('/getMissionByLocation', methods=['GET', 'POST'])
+def route_Mission_by_location():
+    if request.method == 'POST':
+        data_obj = Data()
+        post_data = request.get_json()
+        print(post_data)
+        mission_by_location_data = data_obj.missions_by_location(post_data)
+        return jsonify(mission_success_failure_data)
+
+
 if __name__ == '__main__':
     app.run()
