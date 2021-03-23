@@ -33,7 +33,8 @@ export default {
     const payload = {
       yearOne: 1958,
       yearTwo: 2020,
-      dataType: 'All'
+      dataType: 'All',
+      company: '',
     };
     this.$store.dispatch('mission/fetchMissionSuccessFailures', { payload })
   },

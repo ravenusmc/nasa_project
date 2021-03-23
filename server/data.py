@@ -54,9 +54,13 @@ class Data():
 			self.mission_data['Datum'] = self.helper_object.convert_date_comulm_from_obj_to_date_mission_data(self.mission_data)
 			min_year = post_data['yearOne']
 			max_year = post_data['yearTwo']
-			test = "This is Amherst, NH"
-			value = test.rsplit(' ', 1)
-			print(value)
+			locations_by_year = self.helper_object.locations_by_year()
+			# test = "This is Amherst, NH"
+			# value = test.rsplit(' ', 1)
+			# print(value)
+			# Need year - start to finish 
+			# count of locations by year 
+			# Name of location
 
 # obj = Data()
 # obj.missions_by_location()

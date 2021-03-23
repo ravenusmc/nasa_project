@@ -57,7 +57,6 @@ def route_Mission_by_location():
     if request.method == 'POST':
         data_obj = Data()
         post_data = request.get_json()
-        print(post_data)
         mission_by_location_data = data_obj.missions_by_location(post_data)
         return jsonify(mission_success_failure_data)
 
