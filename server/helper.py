@@ -188,6 +188,8 @@ class Helper():
 				rows.append(number_failed_missions)
 			missions_by_year.append(rows)
 		return missions_by_year
+	
+	def locations_by_year(self.mission_data, post_data, min_year, max_year)
 
 
 
