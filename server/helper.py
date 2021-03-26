@@ -190,6 +190,12 @@ class Helper():
 		return missions_by_year
 	
 	def locations_by_year(self.mission_data, post_data, min_year, max_year)
+		# test = "This is Amherst, NH"
+		# value = test.rsplit(' ', 1)
+		# print(value)
+		# Need year - start to finish 
+		# count of locations by year 
+		# Name of location
 		pass
 
 

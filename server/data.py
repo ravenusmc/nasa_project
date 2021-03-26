@@ -55,12 +55,6 @@ class Data():
 			min_year = post_data['yearOne']
 			max_year = post_data['yearTwo']
 			locations_by_year = self.helper_object.locations_by_year(self.mission_data, post_data, min_year, max_year)
-			# test = "This is Amherst, NH"
-			# value = test.rsplit(' ', 1)
-			# print(value)
-			# Need year - start to finish 
-			# count of locations by year 
-			# Name of location
 
 # obj = Data()
 # obj.missions_by_location()
