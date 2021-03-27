@@ -96,6 +96,7 @@ export default {
   methods: {
     ...mapActions("mission", [
       'fetchMissionSuccessFailures',
+      'fetchMissionLocations',
     ]),
     submitSelection(evt) {
       evt.preventDefault();
@@ -115,6 +116,7 @@ export default {
           company: this.company,
         }
         this.fetchMissionSuccessFailures({ payload })
+        this.fetchMissionLocations({ payload })
       }
     },
   },

@@ -107,7 +107,7 @@ const actions = {
 					let date = new Date(res.data[i][0], 0, 1)
 					res.data[i][0] = date
 				}
-				commit('setSuccessFailuresMissionData', res.data);
+				commit('setMissionLocationsData', res.data);
 			})
 			.catch(error => {
 				console.log(error);

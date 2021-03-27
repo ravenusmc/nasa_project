@@ -55,7 +55,7 @@ class Data():
 			min_year = post_data['yearOne']
 			max_year = post_data['yearTwo']
 			locations_by_year = self.helper_object.locations_by_year(self.mission_data, post_data, min_year, max_year)
-
+			return locations_by_year
 # obj = Data()
 # obj.missions_by_location()
 

@@ -58,7 +58,7 @@ def route_Mission_by_location():
         data_obj = Data()
         post_data = request.get_json()
         mission_by_location_data = data_obj.missions_by_location(post_data)
-        return jsonify(mission_success_failure_data)
+        return jsonify(mission_by_location_data)
 
 
 if __name__ == '__main__':

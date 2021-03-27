@@ -161,7 +161,6 @@ class Helper():
 		missions_by_year.append(columns)
 		starting_year = int(min_year)
 		ending_year = int(max_year)
-		print(post_data['company'])
 		if post_data['company'] != '':
 			mission_data = mission_data[(mission_data['Company Name'] == post_data['company'])]
 		while starting_year <= ending_year:
@@ -189,14 +188,37 @@ class Helper():
 			missions_by_year.append(rows)
 		return missions_by_year
 	
-	def locations_by_year(self.mission_data, post_data, min_year, max_year)
-		# test = "This is Amherst, NH"
-		# value = test.rsplit(' ', 1)
-		# print(value)
-		# Need year - start to finish 
-		# count of locations by year 
-		# Name of location
-		pass
+	def locations_by_year(self, mission_data, post_data, min_year, max_year):
+		mission_locations_by_year = []
+		columns = ['Year', 'Location', 'Count']
+		mission_locations_by_year.append(columns)
+		starting_year = int(min_year)
+		ending_year = int(max_year)
+		while starting_year <= ending_year:
+			rows = []
+			missions_by_year_dictionary = {}
+			end_of_the_year = starting_year + 1
+			data = mission_data[(mission_data['Datum'] >= pd.to_datetime(str(starting_year))) & (mission_data['Datum'] < pd.to_datetime(str(end_of_the_year)))]
+			unique_locations_list_full_names = list(pd.unique(data['Location']))
+			country_name_list = []
+			for location in unique_locations_list_full_names:
+				country_name = location.rsplit(' ', 1)
+				country_name_list.append(country_name[-1])
+			# Need to get unique names out of the list 
+			print(country_name_list)
+			input()
+			number_of_missions = len(data)
+			number_successful_missions = len(success_missions)
+			number_failed_missions = len(failed_missions)
+			rows.append(starting_year)
+			starting_year += 1 
+			mission_locations_by_year.append(rows)
+		data = 5
+		return data
+
+	# test = "This is Amherst, NH"
+	# value = test.rsplit(' ', 1)
+	# print(value)
 
 
 
