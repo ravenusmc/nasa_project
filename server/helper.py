@@ -204,9 +204,10 @@ class Helper():
 			for location in unique_locations_list_full_names:
 				country_name = location.rsplit(' ', 1)
 				country_name_list.append(country_name[-1])
-			# Need to get unique names out of the list 
-			print(country_name_list)
-			input()
+			country_name_list_numpy = np.array(country_name_list)
+			country_name_list_unique = list(np.unique(country_name_list_numpy))
+			for location in country_name_list_unique:
+				
 			number_of_missions = len(data)
 			number_successful_missions = len(success_missions)
 			number_failed_missions = len(failed_missions)
