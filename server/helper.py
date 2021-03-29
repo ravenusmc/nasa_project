@@ -195,7 +195,6 @@ class Helper():
 		starting_year = int(min_year)
 		ending_year = int(max_year)
 		while starting_year <= ending_year:
-			rows = []
 			missions_by_year_dictionary = {}
 			end_of_the_year = starting_year + 1
 			data = mission_data[(mission_data['Datum'] >= pd.to_datetime(str(starting_year))) & (mission_data['Datum'] < pd.to_datetime(str(end_of_the_year)))]
@@ -203,18 +202,20 @@ class Helper():
 			country_name_list = []
 			for location in unique_locations_list_full_names:
 				country_name = location.rsplit(' ', 1)
-				country_name_list.append(country_name[-1])
+				country_name_list.append(country_name[-1].lower())
 			country_name_list_numpy = np.array(country_name_list)
 			country_name_list_unique = list(np.unique(country_name_list_numpy))
 			for location in country_name_list_unique:
-				
-			number_of_missions = len(data)
-			number_successful_missions = len(success_missions)
-			number_failed_missions = len(failed_missions)
-			rows.append(starting_year)
+				rows = []
+				locations = data["Location"].str.lower().str.count(location)
+				rows.append(starting_year)
+				rows.append(location)
+				rows.append(locations.sum())
+				mission_locations_by_year.append(rows)
 			starting_year += 1 
-			mission_locations_by_year.append(rows)
 		data = 5
+		print(mission_locations_by_year)
+		input()
 		return data
 
 	# test = "This is Amherst, NH"
