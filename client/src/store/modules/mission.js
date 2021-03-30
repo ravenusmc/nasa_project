@@ -106,7 +106,7 @@ const actions = {
 				console.log(res.data)
 				for (let i = 1; i < res.data.length; i++) {
 					let date = new Date(res.data[i][1], 0, 1)
-					res.data[i][0] = date
+					res.data[i][1] = date
 				}
 				commit('setMissionLocationsData', res.data);
 			})
