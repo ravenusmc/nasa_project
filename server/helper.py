@@ -190,7 +190,7 @@ class Helper():
 	
 	def locations_by_year(self, mission_data, post_data, min_year, max_year):
 		mission_locations_by_year = []
-		columns = ['Year', 'Location', 'Count']
+		columns = ['Location', 'Year', 'Count']
 		mission_locations_by_year.append(columns)
 		starting_year = int(min_year)
 		ending_year = int(max_year)
@@ -208,19 +208,12 @@ class Helper():
 			for location in country_name_list_unique:
 				rows = []
 				locations = data["Location"].str.lower().str.count(location)
+				rows.append(str(location))
 				rows.append(starting_year)
-				rows.append(location)
-				rows.append(locations.sum())
+				rows.append(int(locations.sum()))
 				mission_locations_by_year.append(rows)
 			starting_year += 1 
-		data = 5
-		print(mission_locations_by_year)
-		input()
-		return data
-
-	# test = "This is Amherst, NH"
-	# value = test.rsplit(' ', 1)
-	# print(value)
+		return mission_locations_by_year
 
 
 

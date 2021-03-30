@@ -54,8 +54,9 @@ class Data():
 			self.mission_data['Datum'] = self.helper_object.convert_date_comulm_from_obj_to_date_mission_data(self.mission_data)
 			min_year = post_data['yearOne']
 			max_year = post_data['yearTwo']
-			locations_by_year = self.helper_object.locations_by_year(self.mission_data, post_data, min_year, max_year)
-			return locations_by_year
+			mission_locations_by_year = self.helper_object.locations_by_year(self.mission_data, post_data, min_year, max_year)
+			return mission_locations_by_year
+			
 # obj = Data()
 # obj.missions_by_location()
 

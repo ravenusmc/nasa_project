@@ -57,8 +57,9 @@ def route_Mission_by_location():
     if request.method == 'POST':
         data_obj = Data()
         post_data = request.get_json()
-        mission_by_location_data = data_obj.missions_by_location(post_data)
-        return jsonify(mission_by_location_data)
+        mission_locations_by_year_data = data_obj.missions_by_location(post_data)
+        print(mission_locations_by_year_data)
+        return jsonify(mission_locations_by_year_data)
 
 
 if __name__ == '__main__':

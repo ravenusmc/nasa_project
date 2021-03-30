@@ -14,6 +14,11 @@
 			:options='chartOptionsTwo'>
 		</GraphCard>
 		<hr>
+		<GraphCard
+			:typeOne='typeThree'
+			:data='missionLocationsData'
+			:options='chartOptionsThree'>
+		</GraphCard>
 		<Footer />
 	</div>
 </template>
@@ -37,6 +42,7 @@ export default {
     return {
 			typeOne: 'ColumnChart',
 			// typeTwo: 'BarChart',
+			typeThree: 'BubbleChart',
 			chartOptionsOne: {
         title: 'Missions Count by Year',
         legend: { position: 'top' },
@@ -55,11 +61,24 @@ export default {
          duration: 1000,
          easing: 'linear',
        },
+			},
+			chartOptionsThree: {
+        title: 'Missions By Location',
+        legend: { position: 'top' },
+        height: 600,
+        animation:{
+         duration: 1000,
+         easing: 'linear',
+       },
       },
     }
 	},
 	computed: {
-    ...mapGetters("mission", ['missionData', 'successFailuresMissionData']),
+    ...mapGetters("mission", [
+			'missionData', 
+			'successFailuresMissionData',
+			'missionLocationsData',
+			]),
   }, // End Computed properties
 }
 </script>
