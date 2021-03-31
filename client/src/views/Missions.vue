@@ -14,6 +14,7 @@
 			:options='chartOptionsTwo'>
 		</GraphCard>
 		<hr>
+		<LocationsFilter />
 		<GraphCard
 			:typeOne='typeThree'
 			:data='missionLocationsData'
@@ -27,6 +28,7 @@
 import AltNavbar from "@/components/generic/AltNavbar.vue";
 import GraphCard from '@/components/charts/GraphCard.vue';
 import SuccessForm from '@/components/missions/SuccessForm.vue';
+import LocationsFilter from '@/components/missions/LocationsFilter.vue';
 import Footer from "@/components/generic/Footer.vue";
 import { mapGetters } from 'vuex';
 
@@ -36,6 +38,7 @@ export default {
 		AltNavbar,
 		GraphCard,
 		SuccessForm,
+		LocationsFilter,
     Footer,
 	},
 	data() {
