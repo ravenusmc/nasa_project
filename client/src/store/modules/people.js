@@ -57,7 +57,11 @@ const actions = {
 					container.name = item.title
 					container.description = item.description
 					container.info = item.extract
-					container.img = item.originalimage.source
+					if (item.originalimage !== undefined) {
+						container.img = item.originalimage.source
+					}else {
+						container.img = ''
+					}
 					i++
 					return container
 				})
