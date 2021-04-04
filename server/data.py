@@ -52,26 +52,14 @@ class Data():
 		
 		def missions_by_location(self, post_data):
 			self.mission_data['Datum'] = self.helper_object.convert_date_comulm_from_obj_to_date_mission_data(self.mission_data)
-			min_year = post_data['yearOne']
-			max_year = post_data['yearTwo']
-			mission_locations_by_year = self.helper_object.locations_by_year(self.mission_data, post_data, min_year, max_year)
+			year = post_data['year']
+			mission_locations_by_year = self.helper_object.locations_by_year(self.mission_data, post_data, year)
 			return mission_locations_by_year
 			
 # obj = Data()
 # obj.missions_by_location()
 
-
-
 # old code that may be needed:
 		# def test_scrap(self):
 		# 	print(list(pd.unique(self.eva_data['Vehicle'])))
 				# print(data_object.info())
-
-
-# Unique companies
-# ['SpaceX', 'CASC', 'Roscosmos', 'ULA', 'JAXA', 'Northrop', 'ExPace', 'IAI', 'Rocket Lab', 'Virgin Orbit', 'VKS RF', 
-# 'MHI', 'IRGC', 'Arianespace', 'ISA', 'Blue Origin', 'ISRO', 'Exos', 'ILS', 'i-Space', 'OneSpace', 'Landspace', 
-# 'Eurockot', 'Land Launch', 'CASIC', 'KCST', 'Sandia', 'Kosmotras', 'Khrunichev', 'Sea Launch', 'KARI', 'ESA', 
-# 'NASA', 'Boeing', 'ISAS', 'SRC', 'MITT', 'Lockheed', 'AEB', 'Starsem', 'RVSN USSR', 'EER', 'General Dynamics', 
-# 'Martin Marietta', 'Yuzhmash', 'Douglas', 'ASI', 'US Air Force', 'CNES', 'CECLES', 'RAE', 'UT', 'OKB-586', 'AMBA', 
-# "Arm??e de l'Air", 'US Navy']

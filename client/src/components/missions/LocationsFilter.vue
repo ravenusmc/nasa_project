@@ -1,14 +1,13 @@
 <template>
   <div>
-    <form @submit="submitSelection">
+    <form>
       <div class="form-area">
         <div class="year-area">
           <p>Year: {{ this.year }}</p>
         </div>
 
         <div class="button-div">
-
-          <div v-on:click='arrowDown()'>
+          <div v-on:click="arrowDown()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -24,7 +23,7 @@
             </svg>
           </div>
 
-          <div v-on:click='arrowUp()'>
+          <div v-on:click="arrowUp()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -40,13 +39,14 @@
             </svg>
           </div>
         </div>
-
       </div>
     </form>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "LocationsFilter",
   data() {
@@ -55,31 +55,26 @@ export default {
     };
   },
   methods: {
+    ...mapActions("mission", [
+      'fetchMissionLocations',
+    ]),
     arrowDown: function () {
-      console.log('down');
+      if (this.year <= 1958) {
+        alert('Cannot go lower than 1958')
+      }else {
+        this.year -= 1
+      }
     },
-    submitSelection(evt) {
-      console.log("HI");
-      evt.preventDefault();
-      // if (this.yearOne < 1958){
-      //   alert('The first year must be at least 1958!')
-      // }else if (this.yearTwo > 2020){
-      // 	alert('The second year must not be greater than 2020!')
-      // }else if (this.yearOne >= this.yearTwo){
-      // 	alert('The first year must be less than the second year!')
-      // }
-      // else if (this.yearTwo <= this.yearOne){
-      // 	alert('The second year must be greater than the first year!')
-      // }else {
-      // const payload = {
-      // 	yearOne: this.yearOne,
-      // 	yearTwo: this.yearTwo,
-      //   dataType: this.dataType,
-      //   company: this.company,
-      // }
-      // this.fetchMissionSuccessFailures({ payload })
-      // this.fetchMissionLocations({ payload })
-      // }
+    arrowUp: function () {
+      if (this.year >= 2020) {
+        alert('Cannot go higher than 1958')
+      }else {
+        this.year += 1
+        const payload = {
+          year: this.year,
+        }
+        this.fetchMissionLocations({ payload })
+      }
     },
   },
 };
