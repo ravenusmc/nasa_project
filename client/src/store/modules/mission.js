@@ -99,11 +99,10 @@ const actions = {
 			})
 	},
 
-	fetchMissionLocations: ({ commit }, { payload }) => {
+	fetchMissionLocations: ({ commit }, { data }) => {
 		const path = 'http://localhost:5000/getMissionByLocation';
-		axios.post(path, payload)
+		axios.post(path, data)
 			.then((res) => {
-				console.log(res.data)
 				for (let i = 1; i < res.data.length; i++) {
 					let date = new Date(res.data[i][1], 0, 1)
 					res.data[i][1] = date

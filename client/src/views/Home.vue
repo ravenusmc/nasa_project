@@ -27,16 +27,24 @@ export default {
   },
   methods: {
     ...mapActions(
-      "mission", ["fetchMissionSuccessFailures"]),
+      "mission", 
+      [
+        "fetchMissionSuccessFailures",
+        "fetchMissionLocations"
+      ]),
   },
   mounted() {
-    const payload = {
+    let payload = {
       yearOne: 1958,
       yearTwo: 2020,
       dataType: 'All',
       company: '',
     };
     this.$store.dispatch('mission/fetchMissionSuccessFailures', { payload })
+    let data = {
+      year: 1958,
+    }
+    this.$store.dispatch('mission/fetchMissionLocations', { data })
   },
 };
 </script>

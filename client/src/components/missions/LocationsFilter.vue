@@ -70,10 +70,10 @@ export default {
         alert('Cannot go higher than 1958')
       }else {
         this.year += 1
-        const payload = {
+        const data = {
           year: this.year,
         }
-        this.fetchMissionLocations({ payload })
+        this.fetchMissionLocations({ data })
       }
     },
   },

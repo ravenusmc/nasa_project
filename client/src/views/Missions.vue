@@ -44,7 +44,6 @@ export default {
 	data() {
     return {
 			typeOne: 'ColumnChart',
-			// typeTwo: 'BarChart',
 			typeThree: 'BubbleChart',
 			chartOptionsOne: {
         title: 'Missions Count by Year',
@@ -66,7 +65,7 @@ export default {
        },
 			},
 			chartOptionsThree: {
-        title: 'Missions By Location',
+				title: 'Missions By Location',
         legend: { position: 'top' },
         height: 600,
         animation:{
