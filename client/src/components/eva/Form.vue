@@ -99,7 +99,10 @@ export default {
         alert('The second year must be greater than the first year!')
 			}else if ( ((this.yearTwo - this.yearOne) > 5) && this.years) {
 				alert('Plesae do NOT Search for more than a five year time span!')
-			}else {
+			}else if (this.vehicle == ""){
+				alert('Please select a vehicle!')
+			}
+			else {
 				const payload = {
 					vehicle: this.vehicle,
 					yearOne: this.yearOne,
