@@ -67,6 +67,23 @@
 
 			</div>
 
+			<div class='explanation-div'>
+
+				<div>
+					<h3 class='font center-title'>Missions</h3>
+				</div>
+
+				<div>
+					<p>
+						This page will show the user the missions that have been conducted, by humanity, since 1958. I 
+						believe that the data includes every mission, human, satellites etc that humanity has sent up 
+						into space. The user will be able to see mission count by year, missions by success/failure and
+						company by year and finally a graph on missions by country by year. 
+					</p> 
+				</div>
+
+			</div>
+
 		</section>
 
 	</div>
