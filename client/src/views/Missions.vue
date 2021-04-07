@@ -1,32 +1,32 @@
 <template>
 	<div>
 		<AltNavbar />
-		<GraphCard
+		<GraphCardNonDrillDown
 			:typeOne='typeOne'
 			:data='missionData'
 			:options='chartOptionsOne'>
-		</GraphCard>
+		</GraphCardNonDrillDown>
 		<hr>
 		<SuccessForm />
-		<GraphCard
+		<GraphCardNonDrillDown
 			:typeOne='typeOne'
 			:data='successFailuresMissionData'
 			:options='chartOptionsTwo'>
-		</GraphCard>
+		</GraphCardNonDrillDown>
 		<hr>
 		<LocationsFilter />
-		<GraphCard
+		<GraphCardNonDrillDown
 			:typeOne='typeThree'
 			:data='missionLocationsData'
 			:options='chartOptionsThree'>
-		</GraphCard>
+		</GraphCardNonDrillDown>
 		<Footer />
 	</div>
 </template>
 
 <script>
 import AltNavbar from "@/components/generic/AltNavbar.vue";
-import GraphCard from '@/components/charts/GraphCard.vue';
+import GraphCardNonDrillDown from '@/components/charts/GraphCardNonDrillDown.vue';
 import SuccessForm from '@/components/missions/SuccessForm.vue';
 import LocationsFilter from '@/components/missions/LocationsFilter.vue';
 import Footer from "@/components/generic/Footer.vue";
@@ -36,7 +36,7 @@ export default {
 	name: "Missions",
 	components: {
 		AltNavbar,
-		GraphCard,
+		GraphCardNonDrillDown,
 		SuccessForm,
 		LocationsFilter,
     Footer,
