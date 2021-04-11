@@ -15,9 +15,8 @@ class Data():
 			self.eva_data = pd.read_csv('./data/eva.csv', error_bad_lines=False)
 			self.mission_data = pd.read_csv('./data/Space_Corrected.csv', error_bad_lines=False)
 		
-		def experiment(self):
-			# print(self.mission_data.head())
-			print(list(pd.unique(self.mission_data['Company Name'])))
+		# def experiment(self):
+		# 	print(list(pd.unique(self.mission_data['Company Name'])))
 
 		def eva_count_by_year(self):
 			self.eva_data['Date'] = self.helper_object.convert_date_column_from_obj_to_date(self.eva_data)

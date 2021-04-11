@@ -48,6 +48,8 @@ section {
 
 .main-image-div {
 	margin-top: 30px;
+	margin-left: 3%;
+	margin-right: 3%;
 	display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 3em;

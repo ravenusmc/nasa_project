@@ -41,7 +41,7 @@ export default {
       }, // End Chart One Options
       chartEvents: {
         'select': () => {
-          //console.log(this.data) // This will show you the data
+          //console.log(this.data) // This will show you the data kept for reference
           const chart = this.$refs.gChart.chartObject;
           const selection = chart.getSelection()[0];
           // I need to add one to the row because the first row contains the
@@ -50,8 +50,6 @@ export default {
           // This pulls out the specific date from the element that the user
           // clicked on
           let date = this.data[row][0]
-          // let startOfYear = moment(this.data[row][0]).format("DD/M/YYYY")
-          // console.log(startOfYear)
           let startOfYear = moment(date); 
           let endOfYear = startOfYear.clone().add(11, 'month').add(30, 'days'); 
           const payload = {
